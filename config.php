@@ -3,7 +3,7 @@
 $serverAddress = "localhost";
 $username = "root" ;
 $password = "";
-$database = "socialmediaapp" ;
+$database = "socialmedia" ;
 
 $connection = new mysqli($serverAddress,$username,$password,$database);
 

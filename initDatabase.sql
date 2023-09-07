@@ -7,7 +7,7 @@ CREATE TABLE Users(
 );
 CREATE TABLE Posts(
     PostID INT AUTO_INCREMENT PRIMARY KEY,
-    UserID UNSIGNED INT NOT NULL,
+    UserID INT NOT NULL,
     Content TEXT,
     uploadDate DATE NOT NULL,
     isPhotoUploaded BOOLEAN,
