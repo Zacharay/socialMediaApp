@@ -9,9 +9,10 @@
     <title></title>
 </head>
 <body>
+    <?php  include "../controllers/registerController.php"?>
     <div class="loginBox-container">
         <h1 class="loginBox-title">SIGN UP</h1>
-        <form class="login-form" method="POST" action="php/controllers/registerController.php">
+        <form class="login-form" method="POST" action="../controllers/registerController.php">
             <div class="login-form-wrapper">
                 <input type="text" name="Name" class="loginBox-textInput" placeholder="Name">
                 <span class="error-message" id="name-error"></span>
@@ -26,7 +27,7 @@
             </div>
             <div class="login-form-wrapper">
                 <input type="email" name="Email" class="loginBox-textInput" placeholder="Email">
-                <span class="error-message" id="email-error"></span>  
+                <span class="error-message" id="email-error"> </span>  
             </div>
             <input type="password" name="Password" class="loginBox-textInput" placeholder="Password">
             <div class="login-form-wrapper">
