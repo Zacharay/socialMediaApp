@@ -3,8 +3,6 @@
 include "../database.php";
 
 $db = new Database();
-$usernameError;
-$emailError;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["Name"];
@@ -23,9 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $queryStr = "INSERT INTO users VALUES (NULL,'$username','$email','$password','$name','$surname','$job')";
     $result = $db->actionQuery($queryStr);
-    
-    $usernameError = '';
-    $emailError  = '';
 
     if($result == '')
     {
@@ -34,15 +29,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     else if(strstr($result,"Username"))
     {
-        $usernameError = 'Username is already in use';
-        header("Location: ../views/registerForm.php");
+        header("Location: ../views/registerForm.php?name=$name&surname=$surname&username=$username&email=$email&job=$job&error=usernameError");
         
         exit;
     }
     else if(strstr($result,"Email"))
     {
-        $emailError = 'Email is already in use';
-        header("Location: ../views/registerForm.php");
+        header("Location: ../views/registerForm.php?name=$name&surname=$surname&username=$username&email=$email&job=$job&error=emailError");
         exit;
     }
 
