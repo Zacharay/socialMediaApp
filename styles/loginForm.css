@@ -71,3 +71,39 @@ body{
     flex-direction: column;
     gap:0.6rem;
 }
+.profile-photo
+{
+    width:30rem;
+    height:30rem;
+    border:solid 6px #5c7cfa;
+    border-radius:100%;
+}
+.uploadPhoto-container{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    padding:3.2rem;
+}
+#uploadPhotoForm{
+    margin-top:2.4rem;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap:3.2rem;
+    width:100%;
+}
+#profilePhotoInput{
+    display:none;
+}
+.profilePhotoInput-label
+{
+    background-color:#5c7cfa ;
+    width:50%;
+    border:none;
+    color:white;
+    font-size:2rem;
+    padding:0.8rem 0.0rem;
+    cursor:pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
