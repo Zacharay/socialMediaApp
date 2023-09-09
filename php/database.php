@@ -28,6 +28,17 @@ class Database{
         }
           
     }
+    public function selectQuery($queryStr)
+    {
+        try {
+            $result = $this->dbConnection->query($queryStr);
+
+            return $result;
+        } catch (mysqli_sql_exception $e) {
+            #echo "Query error: " . $e->getMessage();
+            return $e->getMessage();
+        }
+    }
     public function __destruct()
     {
         $this->dbConnection->close();
