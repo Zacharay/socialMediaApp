@@ -28,6 +28,10 @@ class Database{
         }
           
     }
+    public function getInsertId()
+    {
+        return $this->dbConnection->insert_id;
+    }
     public function selectQuery($queryStr)
     {
         try {

@@ -24,13 +24,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($result == '')
     {
+        $userID = $db->getInsertId();;
+        session_start();
+        $_SESSION['userID'] = $userID;
+
+       
         header("Location: ../views/uploadPhoto.php");
         exit;
     }
     else if(strstr($result,"Username"))
     {
         header("Location: ../views/registerForm.php?name=$name&surname=$surname&username=$username&email=$email&job=$job&error=usernameError");
-        
         exit;
     }
     else if(strstr($result,"Email"))
