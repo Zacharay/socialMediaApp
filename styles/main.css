@@ -13,13 +13,6 @@
 html{
     font-size:62.5%;
 }
-body{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    gap:1.2rem;
-}
 .login-btn
 {
     width:30rem !important;
@@ -28,4 +21,11 @@ body{
 a{
     text-decoration: none;
 
+}
+.container{
+    width:144rem;
+    margin:0 auto;
+}
+li{
+    list-style-type: none;
 }

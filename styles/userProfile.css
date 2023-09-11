@@ -1,4 +1,53 @@
 .userProfile__header{
     display:flex;
     justify-content: space-between;
+    padding:9.6rem 0rem;
+    
+}
+.userProfile__photo{
+    width:24rem;
+    height:24rem;;
+    border:solid 3px var(--blue-main);
+    border-radius:100%;
+}
+.userProfile__name
+{
+    font-size:3.6rem;
+    margin-bottom:0.2rem;
+    color:#0a1f30;
+}
+.userProfile__occupation
+{
+    font-size:1.6rem;
+    font-weight: 400;
+    margin-bottom:1.6rem;
+    color:#0a1f30;
+}
+.userProfile__header__wrapper{
+    display:flex;
+    align-items:center;
+    gap:2.4rem;
+}
+.userProfile__description{
+    width:50rem;
+    height:16rem;
+    background-color:white;
+    box-shadow: 8px 8px 24px -21px rgba(66, 68, 90, 1);
+    font-size:1.6rem;
+    padding:1.6rem;
+    color:#0a1f30;
+}
+.userProfile__description span{
+    font-size:2rem;
+    color:#0a1f30;
+    margin-bottom:1.2rem;
+    font-weight:600;
+}
+.userProfile__socials__container{
+    display:flex;
+    gap:1.6rem;
+}
+.userProfile__socials__image{
+    width:3.2rem;
+    height:3.2rem;
 }
