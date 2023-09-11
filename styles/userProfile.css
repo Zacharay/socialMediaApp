@@ -1,3 +1,7 @@
+.userProfile__section--gray{
+    background-color: #f5f7fe; 
+    box-shadow: 0px 13px 24px -22px rgba(66, 68, 90, 1);
+}
 .userProfile__header{
     display:flex;
     justify-content: space-between;
@@ -38,6 +42,7 @@
     font-size:1.6rem;
     padding:1.6rem;
     color:#0a1f30;
+    overflow-y:auto;
 }
 .userProfile__description span{
     font-size:2rem;
@@ -71,7 +76,7 @@
 }
 .followers__element h4{
     font-size:2rem;
-    color:#0a1f30
+    color:#0a1f30;
 }
 .followers__element p {
     font-size:1.6rem;
@@ -80,4 +85,46 @@
 }
 .followers__btn{
     width:40rem;
+}
+/* post */
+.post__section{
+    padding:9.6rem;
+}
+.post__container
+{
+    padding:4.8rem;
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0.554);
+}
+.post__userphoto{
+    width:6.4rem;
+    height:6.4rem;
+    border-radius:100%;
+    border:1px solid var(--blue-main)
+}
+.post__info{
+    display:flex;
+    gap:1.6rem;
+    margin-bottom:1.2rem;
+}
+.post__username{
+    font-size:2.4rem;
+}
+.post__date{
+    font-size:1.6rem;
+    font-weight:400;
+    color:#71767b;
+}
+.post__content{
+
+}
+.post__text{
+    font-size:1.6rem;
+    color:#0a1f30;
+    line-height:1.8;
+    margin-bottom: 2.4rem;
+}
+.post__image
+{
+    width:100%;
+    max-height: 300rem;
 }
