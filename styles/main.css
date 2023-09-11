@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+:root {
+    --blue-main: #5c7cfa;
+    --blue-main_light:#748ffc;
+    --error-color:#fa5252
+  }
 *{
     box-sizing: border-box;
     padding: 0;

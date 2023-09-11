@@ -4,28 +4,28 @@ body{
     align-items: center;
     height: 100vh;
 }
-.loginBox-container
+.login__container
 {
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0.554);
     width:60rem;
 }
-.loginBox-title
+.login__title
 {
-    background-color: #5c7cfa;
+    background-color: var(--blue-main);
     color:white;
     padding:0.8rem;
     text-align: center;
     font-weight:400;
     font-size:2rem;
 }
-.login-form{
+.login__form{
     display:flex;
     flex-direction:column;
     align-items: flex-start;
     gap:1.6rem;
     padding:3.2rem;
 }
-.loginBox-textInput{
+.login__textinput{
     width:100%;
     border:none;
     background-color:#e9ecef;
@@ -33,19 +33,19 @@ body{
     font-weight: 300;
     padding:0.8rem;
 }
-.loginBox-checkBox-label
+.login__checkbox--label
 {
     display:flex;
     align-items: center;
     font-size:1.6rem;
     gap:1.2rem;
 }
-.loginBox-checkBox-label input{
+.login__checkbox--label input{
     width:1.6rem;
     height:1.6rem;
 }
-.loginBox-submit{
-    background-color:#5c7cfa ;
+.login__submit{
+    background-color:var(--blue-main) ;
     width:100%;
     border:none;
     color:white;
@@ -54,37 +54,41 @@ body{
     cursor:pointer;
     transition: all 0.2s;
 }
-.loginBox-submit:hover{
-    background-color:#748ffc;
+.login__submit:hover{
+    background-color:var(--blue-main_light);
 }
-.error-message{
+.login__error--message{
     font-size:1.6rem;
     font-weight:400;
-    color:#fa5252;
+    color:var(--error-color);
 }
-.loginForm-invalidInput{
-    border:1px solid #fa5252;
+.login__form__input--invalid{
+    border:1px solid var(--error-color);
 }
-.login-form-wrapper{
+.login__form--wrapper{
     width:100%;
     display:flex;
     flex-direction: column;
     gap:0.6rem;
 }
-.profile-photo
+/* 
+ Upload photo view
+*/
+.uploadPhoto__image
 {
     width:30rem;
     height:30rem;
-    border:solid 6px #5c7cfa;
+    border:solid 6px var(--blue-main);
     border-radius:100%;
 }
-.uploadPhoto-container{
+
+.uploadPhoto__container{
     display:flex;
     align-items: center;
     flex-direction: column;
     padding:3.2rem;
 }
-#uploadPhotoForm{
+#uploadPhoto__form{
     margin-top:2.4rem;
     display:flex;
     flex-direction: column;
@@ -92,12 +96,12 @@ body{
     gap:3.2rem;
     width:100%;
 }
-#profilePhotoInput{
-    display:none;
+#uploadPhoto__input--file{
+     display:none; 
 }
-.profilePhotoInput-label
+.uploadPhoto__input--file__label
 {
-    background-color:#5c7cfa ;
+    background-color:var(--blue-main);
     width:50%;
     border:none;
     color:white;

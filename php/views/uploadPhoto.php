@@ -9,19 +9,18 @@
 </head>
 <body>
 
-    <div class="loginBox-container uploadPhoto-container">
-        <img  src="../../images/profilePhotos/userPhoto_-1.png" class="profile-photo"/>
-        <form id="uploadPhotoForm" method="POST" enctype="multipart/form-data" action="../controllers/uploadPhotoController.php">
-            <input type="file" name="profilePhoto" id="profilePhotoInput" onchange="displaySelectedImage()"/>
-            <label for="profilePhotoInput" class="profilePhotoInput-label">Choose an image </label>
-            <input type="submit" value="Save" class="loginBox-submit"/>
+    <div class="login__container uploadPhoto__container">
+        <img  src="../../images/profilePhotos/userPhoto_default.png" class="uploadPhoto__image"/>
+        <form id="uploadPhoto__form" method="POST" enctype="multipart/form-data" action="../controllers/uploadPhotoController.php">
+            <input type="file" name="profilePhoto" id="uploadPhoto__input--file" onchange="displaySelectedImage()"/>
+            <label for="uploadPhoto__input--file" class="uploadPhoto__input--file__label">Choose an image </label>
+            <input type="submit" value="Save" class="login__submit"/>
         </form>
     </div>
     <script>
-        // JavaScript function to display the selected image instantly
         function displaySelectedImage() {
-            const input = document.getElementById('profilePhotoInput');
-            const image = document.querySelector('.profile-photo');
+            const input = document.querySelector('#uploadPhoto__input--file');
+            const image = document.querySelector('.uploadPhoto__image');
             console.log(image);
 
             if (input.files && input.files[0]) {
@@ -33,7 +32,6 @@
 
                 reader.readAsDataURL(input.files[0]);
             } else {
-                // Handle the case when no file is selected or the selected file is invalid
                 image.src = '../../images/profilePhotos/defaultPhoto.png';
             }
         }

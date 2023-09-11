@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             if (in_array($mime, $allowedMimes)) {
                 move_uploaded_file($uploadedFile['tmp_name'], $destination);
+                header("Location: ../views/userProfile.php");
             } else {
                 echo 'Invalid file type. Please upload a valid image (JPEG, PNG).';
             }
