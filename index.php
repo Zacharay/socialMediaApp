@@ -8,7 +8,19 @@
     <title>Social Media App</title>
 </head>
 <body>
-    <a href="php/views/loginForm.php" class="btn login-btn">Sign In</a>
-    <a href="php/views/registerForm.php" class="btn login-btn">Sign Up</a>
+    <style>
+        body{
+            height:100vh;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        a{
+            width:30rem !important;
+            margin-right:3.2rem;
+        }
+    </style>
+    <a href="php/views/loginForm.php" class="btn--primary">Sign In</a>
+    <a href="php/views/registerForm.php" class="btn--primary">Sign Up</a>
 </body>
 </html>

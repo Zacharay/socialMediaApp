@@ -13,19 +13,30 @@
 html{
     font-size:62.5%;
 }
-.login-btn
-{
-    width:30rem !important;
-    text-align: center;
-}
 a{
     text-decoration: none;
-
 }
+li{
+    list-style-type: none;
+}
+
+
+/* Reusable classes */
 .container{
     width:144rem;
     margin:0 auto;
 }
-li{
-    list-style-type: none;
+.btn--primary{
+    text-align: center;
+    background-color:var(--blue-main) ;
+    width:100%;
+    border:none;
+    color:white;
+    font-size:2rem;
+    padding:0.8rem 0.0rem;
+    cursor:pointer;
+    transition: all 0.2s;
+}
+.btn--primary:hover{
+    background-color:var(--blue-main_light);
 }

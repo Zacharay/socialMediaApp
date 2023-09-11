@@ -14,7 +14,7 @@
         <form id="uploadPhoto__form" method="POST" enctype="multipart/form-data" action="../controllers/uploadPhotoController.php">
             <input type="file" name="profilePhoto" id="uploadPhoto__input--file" onchange="displaySelectedImage()"/>
             <label for="uploadPhoto__input--file" class="uploadPhoto__input--file__label">Choose an image </label>
-            <input type="submit" value="Save" class="login__submit"/>
+            <input type="submit" value="Save" class="btn--primary"/>
         </form>
     </div>
     <script>

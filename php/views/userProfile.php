@@ -8,7 +8,7 @@
     <title>Social Media</title>
 </head>
 <body>
-    <div style="background-color: #f5f7fe;">
+    <div style="background-color: #f5f7fe; box-shadow: 0px 13px 24px -22px rgba(66, 68, 90, 1);">
         <section class="userProfile__header container">
             <div class="userProfile__header__wrapper">
                 <img src="../../images/profilePhotos/userPhoto_1.png" class="userProfile__photo"/>
@@ -44,10 +44,21 @@
                         </a>
                     </li>
                 </ul>
-                <button>Send Message</button>
+                <button class="btn--primary">Send Message</button>
+                
             </div>
         </section>
-    </div>
+        <section class="followers__container container">
+            <div class="followers__element">
+                <h4>441</h4>
+                <p>Followers</p>
+            </div>
+            <div class="followers__element">
+                <h4>4421</h4>
+                <p>Following</p>
+            </div>
+            <button class="btn--primary followers__btn">Follow</button>
+        </section>
     
 </body>
 </html>

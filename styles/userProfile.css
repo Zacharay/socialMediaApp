@@ -1,8 +1,8 @@
 .userProfile__header{
     display:flex;
     justify-content: space-between;
-    padding:9.6rem 0rem;
-    
+    padding-top:9.6rem;
+    padding-bottom:4.8rem;
 }
 .userProfile__photo{
     width:24rem;
@@ -32,6 +32,8 @@
     width:50rem;
     height:16rem;
     background-color:white;
+    border:solid 3px var(--blue-main);
+    border-radius:8px;
     box-shadow: 8px 8px 24px -21px rgba(66, 68, 90, 1);
     font-size:1.6rem;
     padding:1.6rem;
@@ -46,8 +48,36 @@
 .userProfile__socials__container{
     display:flex;
     gap:1.6rem;
+    margin-bottom:6.4rem;
 }
 .userProfile__socials__image{
     width:3.2rem;
     height:3.2rem;
+}
+.followers__container{
+    display:flex;
+    justify-content: flex-end;
+}
+.followers__element{
+    background-color:white;
+    width:20rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:1.2rem;
+    border:2px solid #d3d4d9;
+    border-right:none;
+}
+.followers__element h4{
+    font-size:2rem;
+    color:#0a1f30
+}
+.followers__element p {
+    font-size:1.6rem;
+    font-weight:500;
+    color:#adb5bd;
+}
+.followers__btn{
+    width:40rem;
 }

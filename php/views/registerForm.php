@@ -54,7 +54,7 @@
             
             <input type="text" name="Job" class="login__textinput" placeholder="Enter your current occupation" value="<?=$jobValue ?>">
             <label class="login__checkbox--label"><input type="checkbox" name="Remember" class="login__checkbox" required>I accept Terms and Conditions</label>
-            <input type="submit" value="Next" class="login__submit">
+            <input type="submit" value="Next" class="btn--primary">
         </form>
     </div>
 

@@ -44,19 +44,6 @@ body{
     width:1.6rem;
     height:1.6rem;
 }
-.login__submit{
-    background-color:var(--blue-main) ;
-    width:100%;
-    border:none;
-    color:white;
-    font-size:2rem;
-    padding:0.8rem 0.0rem;
-    cursor:pointer;
-    transition: all 0.2s;
-}
-.login__submit:hover{
-    background-color:var(--blue-main_light);
-}
 .login__error--message{
     font-size:1.6rem;
     font-weight:400;
