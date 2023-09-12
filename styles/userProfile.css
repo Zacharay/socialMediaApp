@@ -55,8 +55,10 @@ body{
 }
 .userProfile__socials__container{
     display:flex;
+    justify-content: flex-end;
     gap:1.6rem;
     margin-bottom:6.4rem;
+    height:3.2rem;
 }
 .userProfile__socials__image{
     width:3.2rem;

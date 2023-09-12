@@ -40,3 +40,6 @@ li{
 .btn--primary:hover{
     background-color:var(--blue-main_light);
 }
+.hidden{
+    opacity:0;
+}

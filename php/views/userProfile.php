@@ -9,53 +9,106 @@
     <title>Social Media</title>
 </head>
 <body>
+    <?php
+    include "../database.php";
+    
+    $db = new Database();
+    $userID = isset($_GET['userID']) ? $_GET['userID'] : -1;
+
+    $queryStr = "SELECT Name,Surname,Job,description,following,followers FROM users WHERE users.UserID = $userID";
+    $queryResult = $db->selectQuery($queryStr);
+    if ($queryResult) {
+        
+        $userData = $queryResult->fetch_assoc();
+        
+       
+        $name = $userData['Name'];
+        $surname = $userData['Surname'];
+        $job = $userData['Job'];
+        $description = $userData['description'];
+        $followers = $userData['following'];
+        $following = $userData['followers'];
+    
+        $description = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint a assumenda modi deleniti eveniet inventore nam voluptate sapiente eum quibusdam! Id, voluptates obcaecati? Laudantium nostrum similique architecto, delectus enim sequi quos labore perferendis provident tenetur, aliquid vitae eius cupiditate hic?';
+
+    } else {
+        // Handle query error
+        echo "Error: ";
+    }
+    $queryStr = "SELECT twitterLink,instagramLink,facebookLink,linkedinLink FROM socialLinks WHERE socialLinks.userID = $userID";
+    $queryResult = $db->selectQuery($queryStr);
+    if ($queryResult) {
+        $userData = $queryResult->fetch_assoc();
+        
+        if($userData!=NULL)
+        {
+             $twitterLink = $userData['twitterLink'];
+            $instagramLink = $userData['instagramLink'];
+            $facebookLink = $userData['facebookLink'];
+            $linkedinLink = $userData['linkedinLink']; 
+        }
+    }
+
+    ?>
     <header class="userProfile__section--gray">
         <div class="userProfile__header container">
             <div class="userProfile__header__wrapper">
-                <img src="../../images/profilePhotos/userPhoto_1.png" class="userProfile__photo"/>
+                <img src="../../images/profilePhotos/userPhoto_<?=$userID?>.png" class="userProfile__photo"/>
                 <div>
-                    <h1 class="userProfile__name">Bill Gates</h1>
-                    <h2 class="userProfile__occupation">CEO AT MICROSOFT</h2>
-                    <p class="userProfile__description">
+                    <h1 class="userProfile__name"><?= $name." ".$surname?></h1>
+                    <h2 class="userProfile__occupation"><?= $job?></h2>
+
+                    <p class="userProfile__description <?=$description==''?'hidden':''?>">
                         <span>Professional Experience</span></br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste totam deserunt qui, suscipit rem minima, amet pariatur ab aperiam explicabo harum, voluptate maxime. Nulla nesciunt assumenda eaque facere laborum eveniet minus. Aut maiores placeat soluta possimus. Provident nulla aut et.
-                        lorem40
+                        <?=$description?>
                     </p>
                 </div>
             </div>
             <div>
                 <ul class="userProfile__socials__container">
-                    <li>
-                        <a href="https://facebook.com" target="_blank">
-                            <img src="../../images/icons/facebookIcon.webp" alt="Facebook Logo" class="userProfile__socials__image"/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com" target="_blank">
-                            <img src="../../images/icons/twitterIcon.png" alt="Twitter Logo" class="userProfile__socials__image"/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://instagram.com" target="_blank">
-                            <img src="../../images/icons/instagramIcon.webp" alt="Instagram Logo" class="userProfile__socials__image"/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://linkedin.com" target="_blank">
-                            <img src="../../images/icons/linkedinIcon.webp" alt="Linkedin Logo" class="userProfile__socials__image"/>
-                        </a>
-                    </li>
+                    <?=
+                        isset($facebookLink)&&$facebookLink!=NULL?'
+                        <li>
+                            <a href="'.$facebookLink.'" target="_blank">
+                                <img src="../../images/icons/facebookIcon.webp" alt="Facebook Logo" class="userProfile__socials__image"/>
+                            </a>
+                        </li>':'';
+                    ?>
+                    <?=
+                        isset($twitterLink)&&$twitterLink!=NULL?'
+                        <li>
+                            <a href="'.$twitterLink.'" target="_blank">
+                                <img src="../../images/icons/twitterIcon.png" alt="Twitter Logo" class="userProfile__socials__image"/>
+                            </a>
+                        </li>':'';
+                    ?>
+                    <?=
+                        isset($instagramLink)&&$instagramLink!=NULL?'
+                        <li>
+                            <a href="'.$instagramLink.'" target="_blank">
+                                <img src="../../images/icons/instagramIcon.webp" alt="Instagram Logo" class="userProfile__socials__image"/>
+                            </a>
+                        </li>':'';
+                    ?>
+                    <?=
+                        isset($linkedinLink)&&$linkedinLink!=NULL?'
+                        <li>
+                            <a href="'.$linkedinLink.'" target="_blank">
+                                <img src="../../images/icons/linkedinIcon.webp" alt="Linkedin Logo" class="userProfile__socials__image"/>
+                            </a>
+                        </li>':'';
+                    ?>
                 </ul>
                 <button class="btn--primary">Send Message</button>
             </div>
         </div>
         <div class="followers__container container">
             <div class="followers__element">
-                <h4>441</h4>
+                <h4><?=$followers?></h4>
                 <p>Followers</p>
             </div>
             <div class="followers__element">
-                <h4>4421</h4>
+                <h4><?=$following?></h4>
                 <p>Following</p>
             </div>
             <button class="btn--primary followers__btn">Follow</button>

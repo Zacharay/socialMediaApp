@@ -15,7 +15,7 @@
             session_start();
             $_SESSION['userID'] = $userID;
 
-            header("Location: ../views/userProfile.php");
+            header("Location: ../views/userProfile.php?userID=$userID");
             exit;
 
         } else {

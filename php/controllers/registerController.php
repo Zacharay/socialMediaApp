@@ -19,9 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Password: " . $password . "<br>";
     echo "Password: " . $job . "<br>";
 
-    $queryStr = "INSERT INTO users VALUES (NULL,'$username','$email','$password','$name','$surname','$job')";
+    $queryStr = "INSERT INTO users VALUES (NULL,'$username','$email','$password','$name','$surname','$job','',0,0)";
     $result = $db->actionQuery($queryStr);
-
     if($result == '')
     {
         $userID = $db->getInsertId();;
