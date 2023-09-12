@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/userProfile.css">
+    <script src="https://kit.fontawesome.com/555617a6c2.js" crossorigin="anonymous"></script>
     <title>Social Media</title>
 </head>
 <body>
@@ -73,10 +74,11 @@
                 <p class="post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos molestias iste est. Eius cupiditate reiciendis dolore vero, esse necessitatibus similique voluptate laboriosam. Amet delectus similique illum dicta expedita autem quo dolorem, optio sunt cupiditate deserunt totam eum fuga sit ratione aperiam iusto omnis maxime! Dolore nostrum voluptatum doloribus numquam fugit laborum, et impedit corrupti? Ab, temporibus. Quod consequatur facilis vel. Alias quae animi quisquam delectus praesentium id dignissimos. Vel eos animi laborum dicta distinctio rerum adipisci illum et doloremque id obcaecati, sed odio ad voluptatum optio? Temporibus pariatur earum facere quisquam aut, exercitationem laborum cumque fuga vitae qui at corporis.</p>
                 <img class="post__image" src="../../images/postPhotos/postPhoto--1.webp" alt="post image"/>
             </div>
+            <h4 class="likes__number">Likes: 225</h4>
             <div class="post__action__container">
-                <div>Like </div>
-                <div>Comment</div>
-                <div>Share</div>
+                <div class="post__action"><i class="fa-regular fa-heart"></i>Like </div>
+                <div class="post__action"><i class="fa-regular fa-comment"></i>Comment</div>
+                <div class="post__action"><i class="fa-regular fa-share-from-square"></i>Share</div>
             </div>
         </div>
     </section>

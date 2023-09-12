@@ -1,3 +1,6 @@
+body{
+    color:#0a1f30
+}
 .userProfile__section--gray{
     background-color: #f5f7fe; 
     box-shadow: 0px 13px 24px -22px rgba(66, 68, 90, 1);
@@ -114,9 +117,6 @@
     font-weight:400;
     color:#71767b;
 }
-.post__content{
-
-}
 .post__text{
     font-size:1.6rem;
     color:#0a1f30;
@@ -127,4 +127,22 @@
 {
     width:100%;
     max-height: 300rem;
+}
+.likes__number{
+    font-size:2.4rem;
+    margin-top:0.2rem;
+}
+.post__action__container{
+    display:flex;
+    justify-content: space-around;
+    margin-top:1.6rem;
+}
+.post__action{
+    font-size:2.4rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.post__action i {
+    margin-right:0.8rem;
 }
