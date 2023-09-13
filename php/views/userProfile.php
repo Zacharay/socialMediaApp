@@ -48,8 +48,9 @@
             $linkedinLink = $userData['linkedinLink']; 
         }
     }
-
     ?>
+    <?php require "../includes/navbar.php" ?>
+
     <header class="userProfile__section--gray">
         <div class="userProfile__header container">
             <div class="userProfile__header__wrapper">
@@ -99,7 +100,7 @@
                         </li>':'';
                     ?>
                 </ul>
-                <button class="btn--primary">Send Message</button>
+                <button class="btn--primary message__btn"><i class="fa-regular fa-envelope"></i>Send Message</button>
             </div>
         </div>
         <div class="followers__container container">
@@ -111,7 +112,7 @@
                 <h4><?=$following?></h4>
                 <p>Following</p>
             </div>
-            <button class="btn--primary followers__btn">Follow</button>
+            <button class="btn--primary followers__btn"><i class="fa-regular fa-heart"></i>Follow</button>
         </div>
     </header>
     <section class="container post__section">
