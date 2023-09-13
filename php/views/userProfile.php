@@ -49,7 +49,10 @@
         }
     }
     ?>
-    <?php require "../includes/navbar.php" ?>
+    <?php 
+    require "../includes/navbar.php" ;
+    include "../includes/createPostModal.php";
+    ?>
 
     <header class="userProfile__section--gray">
         <div class="userProfile__header container">
