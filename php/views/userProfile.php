@@ -51,7 +51,7 @@
     ?>
     <?php 
     require "../includes/navbar.php" ;
-    include "../includes/createPostModal.php";
+    // include "../includes/createPostModal.php";
     ?>
 
     <header class="userProfile__section--gray">

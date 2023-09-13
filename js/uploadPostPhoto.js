@@ -26,7 +26,7 @@ fileInput.addEventListener("change", function (){
 
             div.appendChild(icon);
             previewContainer.appendChild(div);
-            if(i==files.length-1)
+            if(i==files.length-1&&files.length<5)
             {
                 const inputHtml =
                 `
