@@ -15,17 +15,18 @@
     $db = new Database();
     $userID = isset($_GET['userID']) ? $_GET['userID'] : -1;
 
-    $queryStr = "SELECT Name,Surname,Job,description,following,followers FROM users WHERE users.UserID = $userID";
+    $queryStr = "SELECT name,surname,job,bio,following,followers FROM users WHERE users.id = $userID";
     $queryResult = $db->selectQuery($queryStr);
+   
     if ($queryResult) {
         
         $userData = $queryResult->fetch_assoc();
         
        
-        $name = $userData['Name'];
-        $surname = $userData['Surname'];
-        $job = $userData['Job'];
-        $description = $userData['description'];
+        $name = $userData['name'];
+        $surname = $userData['surname'];
+        $job = $userData['job'];
+        $description = $userData['bio'];
         $followers = $userData['following'];
         $following = $userData['followers'];
     
@@ -35,7 +36,7 @@
         // Handle query error
         echo "Error: ";
     }
-    $queryStr = "SELECT twitterLink,instagramLink,facebookLink,linkedinLink FROM socialLinks WHERE socialLinks.userID = $userID";
+    $queryStr = "SELECT twitterLink,instagramLink,facebookLink,linkedinLink FROM socialLinks WHERE socialLinks.user_id = $userID";
     $queryResult = $db->selectQuery($queryStr);
     if ($queryResult) {
         $userData = $queryResult->fetch_assoc();
@@ -51,7 +52,6 @@
     ?>
     <?php 
     require "../includes/navbar.php" ;
-    // include "../includes/createPostModal.php";
     ?>
 
     <header class="userProfile__section--gray">
@@ -119,87 +119,11 @@
         </div>
     </header>
     <section class="container post__section">
-        <div class="post__container">
-            <div class="post__info">
-                <img src="../../images/profilePhotos/userPhoto_62.png" alt="profile photo" class="post__userphoto"/>
-                <div>
-                    <h2 class="post__username">Bill Gates</h2>
-                    <h3 class="post__date">Created at: 11-09-2023</h3>
-                </div>
-            </div>
-            <div class="post__content">
-                <p class="post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos molestias iste est. Eius cupiditate reiciendis dolore vero, esse necessitatibus similique voluptate laboriosam. Amet delectus similique illum dicta expedita autem quo dolorem, optio sunt cupiditate deserunt totam eum fuga sit ratione aperiam iusto omnis maxime! Dolore nostrum voluptatum doloribus numquam fugit laborum, et impedit corrupti? Ab, temporibus. Quod consequatur facilis vel. Alias quae animi quisquam delectus praesentium id dignissimos. Vel eos animi laborum dicta distinctio rerum adipisci illum et doloremque id obcaecati, sed odio ad voluptatum optio? Temporibus pariatur earum facere quisquam aut, exercitationem laborum cumque fuga vitae qui at corporis.</p>
-                <div class="slider__container">
-                    <div class="slider">
-                        <div class="slider__slide">
-                            <img class="slider__image" src="../../images/postPhotos/postPhoto--1.webp" alt="post image"/>
-                        </div>
-                        <div class="slider__slide">
-                            <img class="slider__image" src="../../images/postPhotos/postPhoto--2.jpg" alt="post image"/>
-                        </div>
-                        <div class="slider__slide">
-                            <img class="slider__image" src="../../images/postPhotos/postPhoto--3.jpg" alt="post image"/>
-                        </div>
-                        <div class="slider__slide">
-                            <img class="slider__image" src="../../images/profilePhotos/userPhoto_1.png" alt="post image"/>
-                        </div>
-                        <div class="slider__slide">
-                            <img class="slider__image" src="../../images/postPhotos/postPhoto--4.jpeg" alt="post image"/>
-                        </div>
-                    </div>
-                    <div class="slider__button slider__next"><i class="fa-solid fa-chevron-right"></i></div>
-                    <div class="slider__button slider__prev"><i class="fa-solid fa-chevron-left"></i></div>
-                </div>
-                
-            </div>
-            
-            <h4 class="likes__number">Likes: 225</h4>
-            <div class="post__action__container">
-                <div class="post__action"><i class="fa-regular fa-heart"></i>Like </div>
-                <div class="post__action"><i class="fa-regular fa-comment"></i>Comment</div>
-                <div class="post__action"><i class="fa-regular fa-share-from-square"></i>Share</div>
-            </div>
-        </div>
-        <div class="post__container">
-            <div class="post__info">
-                <img src="../../images/profilePhotos/userPhoto_62.png" alt="profile photo" class="post__userphoto"/>
-                <div>
-                    <h2 class="post__username">Bill Gates</h2>
-                    <h3 class="post__date">Created at: 11-09-2023</h3>
-                </div>
-            </div>
-            <div class="post__content">
-                <p class="post__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos molestias iste est. Eius cupiditate reiciendis dolore vero, esse necessitatibus similique voluptate laboriosam. Amet delectus similique illum dicta expedita autem quo dolorem, optio sunt cupiditate deserunt totam eum fuga sit ratione aperiam iusto omnis maxime! Dolore nostrum voluptatum doloribus numquam fugit laborum, et impedit corrupti? Ab, temporibus. Quod consequatur facilis vel. Alias quae animi quisquam delectus praesentium id dignissimos. Vel eos animi laborum dicta distinctio rerum adipisci illum et doloremque id obcaecati, sed odio ad voluptatum optio? Temporibus pariatur earum facere quisquam aut, exercitationem laborum cumque fuga vitae qui at corporis.</p>
-                <div class="slider__container">
-                    <div class="slider">
-                        <div class="slider__slide">
-                            <img class="slider__image" src="../../images/postPhotos/postPhoto--1.webp" alt="post image"/>
-                        </div>
-                        <div class="slider__slide">
-                            <img class="slider__image" src="../../images/postPhotos/postPhoto--2.jpg" alt="post image"/>
-                        </div>
-                        <div class="slider__slide">
-                            <img class="slider__image" src="../../images/postPhotos/postPhoto--3.jpg" alt="post image"/>
-                        </div>
-                        <div class="slider__slide">
-                            <img class="slider__image" src="../../images/profilePhotos/userPhoto_1.png" alt="post image"/>
-                        </div>
-                        <div class="slider__slide">
-                            <img class="slider__image" src="../../images/postPhotos/postPhoto--4.jpeg" alt="post image"/>
-                        </div>
-                    </div>
-                    <div class="slider__button slider__next"><i class="fa-solid fa-chevron-right"></i></div>
-                    <div class="slider__button slider__prev"><i class="fa-solid fa-chevron-left"></i></div>
-                </div>
-                
-            </div>
-            
-            <h4 class="likes__number">Likes: 225</h4>
-            <div class="post__action__container">
-                <div class="post__action"><i class="fa-regular fa-heart"></i>Like </div>
-                <div class="post__action"><i class="fa-regular fa-comment"></i>Comment</div>
-                <div class="post__action"><i class="fa-regular fa-share-from-square"></i>Share</div>
-            </div>
+        <?php
+            include "../includes/userPost.php";
+            for($i =0;$i<10;$i++)
+            echo includePostTemplate($userID,$name." ".$surname,$description,'11-09-2023',2137 );
+        ?>
         </div>
     </section>
     <script src="../../js/slider.js"></script>

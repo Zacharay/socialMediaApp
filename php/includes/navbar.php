@@ -18,7 +18,7 @@
                 </div>
                 <a class="btn--primary btn__createPost" href="../views/createPostView.php">Create Post</a>
                 <div class="navbar__userProfile">
-                    <img src="../../images/profilePhotos/userPhoto_62.png" alt="User profile photo">
+                    <img src="../../images/profilePhotos/userPhoto_<?=$userID ?>.png" alt="User profile photo">
                     <div class="userProfile__dropdown">
                         <ul class="userProfile__dropdown__list">
                             <li class="userProfile__dropdown__listItem"><a href="../views/userProfile.php?userID=<?=$userID ?>"><i class="fa-regular fa-user"></i> Profile</a></li>
