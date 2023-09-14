@@ -52,6 +52,7 @@
     ?>
     <?php 
     require "../includes/navbar.php" ;
+    require "../includes/createPostModal.php";
     ?>
 
     <header class="userProfile__section--gray">
@@ -103,7 +104,7 @@
                         </li>':'';
                     ?>
                 </ul>
-                <button class="btn--primary message__btn"><i class="fa-regular fa-envelope"></i>Send Message</button>
+                <button class="btn--primary" id="message__btn"><i class="fa-regular fa-envelope"></i>Send Message</button>
             </div>
         </div>
         <div class="followers__container container">
@@ -115,7 +116,7 @@
                 <h4><?=$following?></h4>
                 <p>Following</p>
             </div>
-            <button class="btn--primary followers__btn"><i class="fa-regular fa-heart"></i>Follow</button>
+            <button class="btn--primary " id="followers__btn"><i class="fa-regular fa-heart"></i>Follow</button>
         </div>
     </header>
     <section class="container post__section">

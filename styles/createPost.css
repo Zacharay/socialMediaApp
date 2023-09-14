@@ -1,4 +1,4 @@
-.modal__overlay{
+.modal__overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,12 +12,31 @@
     align-items: center;
     display:none;
 }
-.modal__container{
+
+.modal__visible {
+    display:flex
+}
+
+.modal__container {
+    position: relative;
     background-color: #F6F6F6; 
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width:80rem;
-    padding:3.2rem;
+    width: 80rem;
+    padding: 3.2rem;
+    padding-top: 6.4rem;
+}
+
+
+
+.modal__close{
+    position:absolute;
+    font-size:4.8rem;
+    top:1rem;
+    right:1rem;
+    color:var(--error-color);
+    cursor: pointer;
+
 }
 .modal__title{
     font-size:3.2rem;

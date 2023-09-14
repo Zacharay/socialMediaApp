@@ -62,7 +62,7 @@
     width:3.2rem;
     height:3.2rem;
 }
-.message__btn{
+#message__btn{
     padding-left:3.2rem;
     padding-right:3.2rem;
     display:flex;
@@ -94,7 +94,7 @@
     font-weight:500;
     color:#adb5bd;
 }
-.followers__btn{
+#followers__btn{
     width:40rem;
     font-size:2.4rem;
     display:flex;

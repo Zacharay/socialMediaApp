@@ -37,6 +37,7 @@ body{
     color:white;
     font-size:2rem;
     padding:0.8rem 0.0rem;
+
     cursor:pointer;
     transition: all 0.2s;
 }

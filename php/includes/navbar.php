@@ -16,7 +16,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" class="search__input" placeholder="Search"/>
                 </div>
-                <a class="btn--primary btn__createPost" href="../views/createPostView.php">Create Post</a>
+                <a class="btn--primary btn__createPost">Create Post</a>
                 <div class="navbar__userProfile">
                     <img src="../../images/profilePhotos/userPhoto_<?=$userID ?>.png" alt="User profile photo">
                     <div class="userProfile__dropdown">
@@ -30,5 +30,6 @@
             </div>
         </div>
     </nav>
+    
 </body>
 </html>
