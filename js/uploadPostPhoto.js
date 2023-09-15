@@ -3,11 +3,11 @@ class PostModal
     #previewContainer;
     #maxPhotos = 5;
     #selectedFiles=[];
-    
+    #publishButton;
     constructor()
     {
         this.#previewContainer = document.querySelector(".modal__upload__container");
-       
+        this.#publishButton = document.querySelector(".btn__publish");
 
         this.#previewContainer.addEventListener('change',(e)=>
         {
@@ -16,6 +16,8 @@ class PostModal
               this._fileInputChanged(e.target);
           }
         })
+
+        this.#publishButton.addEventListener("click",this._uploadFiles.bind(this));
         
     }
     _resetFileInput()
@@ -76,6 +78,20 @@ class PostModal
   
         reader.readAsDataURL(file);
       }
+    }
+    _uploadFiles()
+    {
+        const formData = new FormData();
+
+        for(let i=0;i<this.#selectedFiles.length;i++)
+        {
+            formData.append('selectedFiles[]',this.#selectedFiles[i]);
+        }
+
+        fetch('../controllers/uploadPostController.php',{
+          method:'POST',
+          body:formData,
+        }).then(response=>response.json()).then(data=>console.log(data));
     }
 }
 const postModal = new PostModal();
