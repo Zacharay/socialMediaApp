@@ -15,6 +15,8 @@
     $db = new Database();
     $userID = isset($_GET['userID']) ? $_GET['userID'] : -1;
 
+
+
     $queryStr = "SELECT name,surname,job,bio,following,followers FROM users WHERE users.id = $userID";
     $queryResult = $db->selectQuery($queryStr);
    
@@ -52,7 +54,7 @@
     ?>
     <?php 
     require "../includes/navbar.php" ;
-    require "../includes/createPostModal.php";
+    
     ?>
 
     <header class="userProfile__section--gray">

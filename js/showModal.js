@@ -1,5 +1,5 @@
 const modal = document.querySelector(".modal__overlay");
-const showModalBtn = document.querySelector(".btn__createPost");
+const showModalBtn = document.querySelector("#btn__createPost");
 const closeModalBtn = document.querySelector(".modal__close");
 const showModal = function(){
     modal.classList.add('modal__visible');

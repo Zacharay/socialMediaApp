@@ -6,11 +6,11 @@
         $username = $_POST["Username"];
         $password = $_POST["Password"];
 
-        $queryStr = "SELECT UserID from users where users.Username = '$username' and users.Password = '$password'";
+        $queryStr = "SELECT id from users where users.username = '$username' and users.password = '$password'";
         $result = $db->selectQuery($queryStr);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $userID = $row["UserID"];
+            $userID = $row["id"];
             
             session_start();
             $_SESSION['userID'] = $userID;

@@ -12,11 +12,8 @@
                 <textarea name="textContent" id="" cols="30" rows="10" placeholder="Write Here" class="modal__post__content"></textarea>
                 
                 <div class="modal__upload__container">
-                    <div class="modal__upload__element modal__upload__preview">
-                        <i class="fa-solid fa-circle-xmark upload__removePhoto"></i>
-                    </div>
-                    <div class="modal__upload__element">
-                        <input type="file" id="modal__file__input" multiple>
+                    <div class="modal__upload__element flex__last__item upload__input__container">
+                        <input type="file" id="modal__file__input" multiple accept=".png,.jpeg,.png,.jpg,.webp">
                         <label   label for="modal__file__input" class="modal__upload__button">
                             <i class="fa-solid fa-arrow-up-from-bracket"></i>
                         </label>
