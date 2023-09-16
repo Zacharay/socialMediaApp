@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/createPost.css">
 </head>
 <body>
@@ -26,4 +24,3 @@
     </div>
     <script src="../../js/postModal.js"></script>
 </body>
-</html>

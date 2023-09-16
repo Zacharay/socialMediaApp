@@ -28,6 +28,9 @@ class Database{
         }
           
     }
+    public function prepareQuery($query) {
+        return $this->dbConnection->prepare($query);
+    }
     public function getInsertId()
     {
         return $this->dbConnection->insert_id;

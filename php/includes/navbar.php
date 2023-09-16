@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
 <head>
     <link rel="stylesheet" href="../../styles/navbar.css"/>
 </head>
@@ -33,4 +32,3 @@
     <?php require "createPostModal.php"; ?>
     
 </body>
-</html>

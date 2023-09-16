@@ -17,7 +17,7 @@
 
 
 
-    $queryStr = "SELECT name,surname,job,bio,following,followers FROM users WHERE users.id = $userID";
+    $queryStr = "SELECT name,surname,job,bio FROM users WHERE users.id = $userID";
     $queryResult = $db->selectQuery($queryStr);
    
     if ($queryResult) {
@@ -29,8 +29,7 @@
         $surname = $userData['surname'];
         $job = $userData['job'];
         $description = $userData['bio'];
-        $followers = $userData['following'];
-        $following = $userData['followers'];
+
     
         $description = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint a assumenda modi deleniti eveniet inventore nam voluptate sapiente eum quibusdam! Id, voluptates obcaecati? Laudantium nostrum similique architecto, delectus enim sequi quos labore perferendis provident tenetur, aliquid vitae eius cupiditate hic?';
 
@@ -38,6 +37,8 @@
         // Handle query error
         echo "Error: ";
     }
+
+    
     $queryStr = "SELECT twitterLink,instagramLink,facebookLink,linkedinLink FROM socialLinks WHERE socialLinks.user_id = $userID";
     $queryResult = $db->selectQuery($queryStr);
     if ($queryResult) {
@@ -45,7 +46,7 @@
         
         if($userData!=NULL)
         {
-             $twitterLink = $userData['twitterLink'];
+            $twitterLink = $userData['twitterLink'];
             $instagramLink = $userData['instagramLink'];
             $facebookLink = $userData['facebookLink'];
             $linkedinLink = $userData['linkedinLink']; 
@@ -111,24 +112,17 @@
         </div>
         <div class="followers__container container">
             <div class="followers__element">
-                <h4><?=$followers?></h4>
+                <h4><?=0?></h4>
                 <p>Followers</p>
             </div>
             <div class="followers__element">
-                <h4><?=$following?></h4>
+                <h4><?=0?></h4>
                 <p>Following</p>
             </div>
             <button class="btn--primary " id="followers__btn"><i class="fa-regular fa-heart"></i>Follow</button>
         </div>
     </header>
-    <section class="container post__section">
-        <?php
-            include "../includes/userPost.php";
-            for($i =0;$i<10;$i++)
-            echo includePostTemplate($userID,$name." ".$surname,$description,'11-09-2023',2137 );
-        ?>
-        </div>
-    </section>
-    <script src="../../js/slider.js"></script>
+    <?php include "../includes/postContainer.php"?>
+    
 </body>
 </html>

@@ -16,7 +16,7 @@ try {
 
     $db = new Database();
 
-    $queryStr = "INSERT INTO posts VALUES (null, $userID, '$postContent', '$upload_date', $photosCount)";
+    $queryStr = "INSERT INTO posts VALUES (null, $userID, '$postContent', '$upload_date', $photosCount,0)";
     $db->actionQuery($queryStr);
 
     $postID = $db->getInsertId();
