@@ -24,7 +24,6 @@
             <i class="fa-solid fa-xmark modal__close"></i>
         </div>
     </div>
-    <script src="../../js/showModal.js"></script>
-    <script src="../../js/uploadPostPhoto.js"></script>
+    <script src="../../js/postModal.js"></script>
 </body>
 </html>
