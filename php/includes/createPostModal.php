@@ -7,7 +7,7 @@
         <div class="modal__container">
             <h1 class="modal__title">Create Post</h1>
             <div class="modal__post__form" >
-                <textarea name="textContent" id="" cols="30" rows="10" placeholder="Write Here" class="modal__post__content"></textarea>
+                <textarea name="textContent" id=""  placeholder="Write Here" class="modal__post__content"></textarea>
                 
                 <div class="modal__upload__container">
                     <div class="modal__upload__element flex__last__item upload__input__container">

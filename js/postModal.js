@@ -119,16 +119,14 @@ class PostModal
           method:'POST',
           body:formData,
         }).then(response=>response.json()).then(data=>{
-          const fileUploadSuccess = true;
+          let fileUploadSuccess = true;
           data.forEach(log=>{
-            if(log.status=='error')fileUploadSuccess = false;
+            if(log.status=='error')fileUploadSuccess = false;     
           })
-
           if(fileUploadSuccess == true)
-          {
-              this._closeModal();
-          }
-
+            {
+                this._closeModal();
+            }
         });
     }
     _removePhotoFromList(photoNr)

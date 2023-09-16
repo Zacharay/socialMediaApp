@@ -1,7 +1,6 @@
 <?php
 
 $response = array();
-include "../database.php";
 session_start();
 
 try {
@@ -12,14 +11,29 @@ try {
     $userID = $_SESSION['userID'];
     $upload_date = date("Y-m-d");
     $postContent = $_POST['postContent'];
+
     $photosCount = isset($_FILES['selectedFiles']) ? count($_FILES['selectedFiles']['name']) : 0;
 
-    $db = new Database();
+       
 
-    $queryStr = "INSERT INTO posts VALUES (null, $userID, '$postContent', '$upload_date', $photosCount,0)";
-    $db->actionQuery($queryStr);
+    $dsn = "mysql:host=localhost;dbname=socialmediaapp;charset=utf8mb4";
+    $username = "root";
+    $password = "";
 
-    $postID = $db->getInsertId();
+    $pdo = new PDO($dsn, $username, $password);
+    $queryStr = "INSERT INTO posts (id, user_id, content, upload_date, photos_count, likes) VALUES (null, :userID, :postContent, :uploadDate, :photosCount, 0)";
+
+    
+    $stmt = $pdo->prepare($queryStr);
+    $stmt->bindParam(':userID', $userID);
+    $stmt->bindParam(':postContent', $postContent);
+    $stmt->bindParam(':uploadDate', $upload_date);
+    $stmt->bindParam(':photosCount', $photosCount);
+
+    $stmt->execute();
+
+    
+    $postID = $pdo->lastInsertId();
 
     if (!empty($_FILES['selectedFiles'])) {
         $uploadDir = '../../images/postPhotos/';
