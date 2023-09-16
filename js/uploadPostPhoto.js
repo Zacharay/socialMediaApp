@@ -83,6 +83,8 @@ class PostModal
     {
         const formData = new FormData();
 
+        const textContent = document.querySelector('.modal__post__content').value;
+        formData.append('postContent',textContent);
         for(let i=0;i<this.#selectedFiles.length;i++)
         {
             formData.append('selectedFiles[]',this.#selectedFiles[i]);
