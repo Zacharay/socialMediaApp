@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/main.css">
+    <script src="https://kit.fontawesome.com/555617a6c2.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
-    
-    <?php include "../includes/navbar.php"?>
+    <?php 
+    require "../includes/navbar.php";
+    ?>
+    <section class="container post__section">
+        <?php 
+
+            include "../includes/postContainer.php";
+            renderUsersPost($currentUserID,false);
+        ?>
+    </section>
 </body>
 </html>

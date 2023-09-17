@@ -15,8 +15,6 @@
     $db = new Database();
     $userID = isset($_GET['userID']) ? $_GET['userID'] : -1;
 
-
-
     $queryStr = "SELECT name,surname,job,bio FROM users WHERE users.id = $userID";
     $queryResult = $db->selectQuery($queryStr);
    
@@ -122,7 +120,11 @@
             <button class="btn--primary " id="followers__btn"><i class="fa-regular fa-heart"></i>Follow</button>
         </div>
     </header>
-    <?php include "../includes/postContainer.php"?>
-    
+    <section class="container post__section">
+    <?php include "../includes/postContainer.php";
+        renderUsersPost($userID,true);
+    ?>
+    </section>
+    <script src="../../js/slider.js"></script>
 </body>
 </html>
