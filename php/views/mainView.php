@@ -18,5 +18,7 @@
             renderUsersPost($currentUserID,false);
         ?>
     </section>
+    <script src="../../js/slider.js"></script>
+    <script src="../../js/loadPosts.js"></script>
 </body>
 </html>

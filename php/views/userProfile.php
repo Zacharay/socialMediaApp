@@ -149,10 +149,11 @@
         </div>
     </header>
     <section class="container post__section">
-    <?php include "../includes/postContainer.php";
-        renderUsersPost($userID,true);
-    ?>
+        <?php include "../includes/postContainer.php";
+            renderUsersPost($userID,true);
+        ?>
     </section>
+    <script src="../../js/loadPosts.js"></script>
     <script src="../../js/followBtn.js"></script>
     <script src="../../js/slider.js"></script>
 </body>
