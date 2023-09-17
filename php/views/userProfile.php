@@ -109,15 +109,43 @@
             </div>
         </div>
         <div class="followers__container container">
+            
             <div class="followers__element">
                 <h4><?=0?></h4>
                 <p>Followers</p>
             </div>
-            <div class="followers__element">
+            <div class="followers__element <?=$currentUserID==$userID?'followers__element__rightBorder':''?>">
                 <h4><?=0?></h4>
                 <p>Following</p>
             </div>
-            <button class="btn--primary " id="followers__btn"><i class="fa-regular fa-heart"></i>Follow</button>
+            <?php
+            if($currentUserID!=$userID)
+            {
+                $queryStr = 'SELECT follows.id from follows where follower_id = :currentUserID and following_id =:userID;';
+                    
+                    
+                $dsn = "mysql:host=localhost;dbname=socialmediaapp;charset=utf8mb4";
+                $username = "root";
+                $password = "";
+
+                $pdo = new PDO($dsn, $username, $password);
+                   
+                $stmt = $pdo->prepare($queryStr);
+                $stmt->bindParam(':userID', $userID);
+                $stmt->bindParam(':currentUserID', $currentUserID);
+            
+                $stmt->execute();
+                $rowCount = $stmt->rowCount();
+
+                if ($rowCount > 0) {
+                    echo '<button class="btn--primary unfollow__btn" id="followers__btn"><i class="fa-regular fa-heart"></i>Unfollow</button>';
+                } else {
+                    echo '<button class="btn--primary follow__btn" id="followers__btn"><i class="fa-solid fa-heart"></i>Follow</button>';
+                }
+                
+            }
+            ?>
+
         </div>
     </header>
     <section class="container post__section">
@@ -125,6 +153,7 @@
         renderUsersPost($userID,true);
     ?>
     </section>
+    <script src="../../js/followBtn.js"></script>
     <script src="../../js/slider.js"></script>
 </body>
 </html>

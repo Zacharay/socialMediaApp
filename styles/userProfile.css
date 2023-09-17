@@ -85,6 +85,9 @@
     border:2px solid #d3d4d9;
     border-right:none;
 }
+.followers__element__rightBorder{
+    border-right:2px solid #d3d4d9 !important;
+}
 .followers__element h4{
     font-size:2rem;
     color:#0a1f30;
