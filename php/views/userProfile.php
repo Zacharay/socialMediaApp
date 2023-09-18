@@ -51,14 +51,15 @@
         }
     }
     ?>
+    
+
+    <header class="userProfile__section--gray">
     <?php 
     require "../includes/navbar.php" ;
     
     ?>
-
-    <header class="userProfile__section--gray">
         <div class="userProfile__header container">
-            <div class="userProfile__header__wrapper">
+            <div class="userProfile__header__info">
                 <img src="../../images/profilePhotos/userPhoto_<?=$userID?>.png" class="userProfile__photo"/>
                 <div>
                     <h1 class="userProfile__name"><?= $name." ".$surname?></h1>
@@ -70,7 +71,7 @@
                     </p>
                 </div>
             </div>
-            <div>
+            <div class="userProfile__header__socials">
                 <ul class="userProfile__socials__container">
                     <?=
                         isset($facebookLink)&&$facebookLink!=NULL?'
@@ -156,5 +157,6 @@
     <script src="../../js/loadPosts.js"></script>
     <script src="../../js/followBtn.js"></script>
     <script src="../../js/slider.js"></script>
+    <script src="../../js/loadTheme.js"></script>
 </body>
 </html>

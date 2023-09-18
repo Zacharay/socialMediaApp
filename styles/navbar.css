@@ -1,16 +1,10 @@
 nav{
     background-color: var(--blue-main);
     animation: slideDown 0.6s ease forwards;
-    transform: translateY(-100%);
+   
+   position:relative;
+   z-index: 300;
 }
-@keyframes slideDown {
-    from {
-      transform: translateY(-100%);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
 .navbar__container{
     
     display:flex;
@@ -18,7 +12,7 @@ nav{
     align-items: center;
     height:6.4rem;
     padding:2.4rem 4.8rem;
-    
+    position:relative 
 }
 .navbar__logo
 {
@@ -71,18 +65,20 @@ nav{
     position: absolute;
     top:100%;
     left:50%;
-    transform: translate(-50%,0);
+    transform: translate(-50%,0%) translateZ(0);
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    z-index: 10000;
     padding:1.6rem 3.2rem;
     width:30rem;
+    
+    
 }
 
 .navbar__userProfile:hover .userProfile__dropdown{
-    display:block;
+    display:block;;
 }
 
 .userProfile__dropdown__list {
@@ -92,9 +88,12 @@ nav{
     display:flex;
     flex-direction:column;
     gap:1.6rem;
+    position:relative;
+    z-index: 9999;
+    
 }
 
-.userProfile__dropdown__listItem a {
+.userProfile__dropdown__listItem a{
     text-decoration: none;
     color: #333;
     display: block;
@@ -103,9 +102,11 @@ nav{
     display: flex;
     gap:1.2rem;
     align-items: center;
+    cursor:pointer;
+    z-index: 9999;
 }
 
-.userProfile__dropdown__listItem a:hover {
+.userProfile__dropdown__listItem:hover {
     background-color: #f5f5f5;
 }
 #userProfile__dropdown__logoutBtn a{

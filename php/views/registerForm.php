@@ -59,5 +59,6 @@
     </div>
 
     <script src="../../js/registerFormValidation.js"></script>
+    <script src="../../js/loadTheme.js"></script>
 </body>
 </html>

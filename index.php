@@ -22,5 +22,6 @@
     </style>
     <a href="php/views/loginForm.php" class="btn--primary">Sign In</a>
     <a href="php/views/registerForm.php" class="btn--primary">Sign Up</a>
+    <script src="js/loadTheme.js"></script>
 </body>
 </html>

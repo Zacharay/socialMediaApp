@@ -19,5 +19,6 @@
             <input type="submit" value="Sign in" class="btn--primary">
         </form>
     </div>
+    <script src="../../js/loadTheme.js"></script>
 </body>
 </html>
