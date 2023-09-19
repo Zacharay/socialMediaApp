@@ -1,38 +1,46 @@
-function initializeSlider(container) {
-  
-    let currentSlide = 0;
-    const nextBtn = container.querySelector(".slider__next");
-    const prevBtn = container.querySelector(".slider__prev");
-    const slider = container.querySelector(".slider");
-    if(!slider||!nextBtn||!prevBtn)return;
-    const slides = Array.from(slider.children);
-
-
-
-
-    const nextSlide = function () {
-        currentSlide++;
-        if (currentSlide >= slides.length) currentSlide = 0;
-        updateSlider();
-    };
-  
-    const prevSlide = function () {
-        currentSlide--;
-        if (currentSlide < 0) currentSlide = slides.length - 1;
-        updateSlider();
-    };
-  
-    function updateSlider() {
+class Slider {
+    constructor(container) {
+        this.currentSlide = 0;
+        this.container = container;
+        this.nextBtn = container.querySelector(".slider__next");
+        this.prevBtn = container.querySelector(".slider__prev");
+        this.slider = container.querySelector(".slider");
         
-      slides.forEach((slide, index) => {
-        slide.style= `transform:translateX(${-currentSlide * 100}%);`;
-      });
+
+        if (!this.slider || !this.nextBtn || !this.prevBtn) return;
+        this.slides = Array.from(this.slider.children);
+
+        this.init();
     }
-  
-    nextBtn.addEventListener("click", nextSlide);
-    prevBtn.addEventListener("click", prevSlide);
+
+    init() {
+        this.nextBtn.addEventListener("click", this.nextSlide.bind(this));
+        this.prevBtn.addEventListener("click", this.prevSlide.bind(this));
+    }
+
+    nextSlide() {
+      
+        this.currentSlide++;
+        console.log(this.currentSlide)
+        if (this.currentSlide >= this.slides.length) this.currentSlide = 0;
+        this.updateSlider();
+    }
+
+    prevSlide() {
+        this.currentSlide--;
+        if (this.currentSlide < 0) this.currentSlide = this.slides.length - 1;
+        this.updateSlider();
+    }
+
+    updateSlider() {
+        this.slides.forEach((slide, index) => {
+            slide.style = `transform:translateX(${-this.currentSlide * 100}%);`;
+        });
+    }
 }
 
 const postContainers = document.querySelectorAll(".post__container");
 
-postContainers.forEach(initializeSlider);
+postContainers.forEach((container) => {
+    new Slider(container);
+});

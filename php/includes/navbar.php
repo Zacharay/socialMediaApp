@@ -14,6 +14,9 @@
                 <div class="search__container">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" class="search__input" placeholder="Search"/>
+                    <ul class="search__container__preview">
+
+                    </ul>
                 </div>
                 <a class="btn--primary" id="btn__createPost">Create Post</a>
                 <div class="navbar__userProfile">
@@ -30,5 +33,5 @@
         </div>
     </nav>
     <?php require "createPostModal.php"; ?>
-    
+    <script src="../../js/searchbar.js"></script>
 </body>
