@@ -1,8 +1,10 @@
 <?php 
 
-include "../database.php";
+include "../models/databaseModel.php";
+include "../models/UserModel.php";
 
-$db = new Database();
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["Name"];
@@ -12,21 +14,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["Password"];
     $job = $_POST["Job"];
 
-    echo "Name: " . $name . "<br>";
-    echo "Surname: " . $surname . "<br>";
-    echo "Username: " .$username . "<br>";
-    echo "Email: " . $email . "<br>";
-    echo "Password: " . $password . "<br>";
-    echo "Password: " . $job . "<br>";
+   
 
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $db = new Database();
+    $userModel = new UserModel($db);
 
-    $queryStr = "INSERT INTO users VALUES (NULL,'$name','$surname','$username','$email','$job','','$hashed_password')";
-    $result = $db->actionQuery($queryStr);
-    echo $result;
-    if($result == '')
+    if($userModel->doesUsernameExists(($username)))
     {
-        $userID = $db->getInsertId();;
+        header("Location: ../views/registerForm.php?name=$name&surname=$surname&username=$username&email=$email&job=$job&error=usernameError");
+        exit;
+    }
+
+    if($userModel->doesEmailExists(($email)))
+    {
+        header("Location: ../views/registerForm.php?name=$name&surname=$surname&username=$username&email=$email&job=$job&error=emailError");
+        exit;
+    }
+
+    $result = $userModel->registerUser($name,$surname,$username,$email, $password,$job);
+
+    if($result)
+    {
+        $userID = $db->getLastInsertId();
         session_start();
         $_SESSION['userID'] = $userID;
 
@@ -34,15 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../views/uploadPhoto.php");
         exit;
     }
-    else if(strstr($result,"Username"))
-    {
-        header("Location: ../views/registerForm.php?name=$name&surname=$surname&username=$username&email=$email&job=$job&error=usernameError");
-        exit;
-    }
-    else if(strstr($result,"Email"))
-    {
-        header("Location: ../views/registerForm.php?name=$name&surname=$surname&username=$username&email=$email&job=$job&error=emailError");
-        exit;
+    else{
+        echo "Registration failed";
     }
 
 }

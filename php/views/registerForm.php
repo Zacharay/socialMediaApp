@@ -42,7 +42,7 @@
                 placeholder="Email" 
                 value="<?= $emailValue ?>">
                 <span class="login__error--message" id="email-error"> 
-                    <?= $emailError ? 'Username is already in use' : '' ?>
+                    <?= $emailError ? 'Email is already in use' : '' ?>
                 </span>  
             </div>
             <input type="password" name="Password" class="login__textinput" placeholder="Password">
