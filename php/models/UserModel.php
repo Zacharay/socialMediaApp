@@ -60,6 +60,68 @@ class UserModel extends Model {
         }
         return $data;
     }
+    public function getUserProfileDataById($userID)
+    {
+        $query = "SELECT name,surname,job,bio,twitterLink,instagramLink,facebookLink,linkedinLink FROM users LEFT OUTER JOIN sociallinks on users.id=sociallinks.user_id WHERE users.id = :userID";
+
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(":userID",$userID);
+        $stmt->execute();    
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(!$row)return null;
+
+        $data[]=array(
+            'name'=>$row['name'],
+            'surname'=>$row['surname'],
+            'job'=>$row['job'],
+            'bio'=>$row['bio'],
+            'twitter'=>$row['twitterLink'],
+            'facebook'=>$row['facebookLink'],
+            'instagram'=>$row['instagramLink'],
+            'linkedin'=>$row['linkedinLink'],
+        );
+        return $data;
+    }
+    public function getUserFollowersAndFollowingCount($userID){
+        $query = "
+            SELECT
+                SUM(CASE WHEN follower_id = :userID THEN 1 ELSE 0 END) AS following_count,
+                SUM(CASE WHEN following_id = :userID THEN 1 ELSE 0 END) AS followers_count
+            FROM follows
+            WHERE follower_id = :userID OR following_id = :userID
+        ";
+    
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(":userID", $userID);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        return [
+            'followers_count' => $row['followers_count'],
+            'following_count' => $row['following_count'],
+        ];
+    }
+    public function getUserFollowingCount($userID){
+        $query = "SELECT COUNT(*) AS following_count FROM follows where follows.follower_id =:userID";
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(":userID",$userID);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $row['following_count'];
+
+    }
+    public function getUserFollowersCount($userID){
+        $query = "SELECT COUNT(*) AS followers_count FROM follows where follows.following_id =:userID";
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(":userID",$userID);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $row['followers_count'];
+
+    }
     public function doesUsernameExists($username)
     {
         $query = "SELECT COUNT(*) FROM users WHERE users.username = :username";

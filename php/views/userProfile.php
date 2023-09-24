@@ -10,45 +10,31 @@
 </head>
 <body>
     <?php
-    include "../database.php";
-    
-    $db = new Database();
+    include "../models/UserModel.php";
+
     $userID = isset($_GET['userID']) ? $_GET['userID'] : -1;
+    $userModel = new UserModel();
+    $userData = $userModel->getUserProfileDataById($userID);
 
-    $queryStr = "SELECT name,surname,job,bio FROM users WHERE users.id = $userID";
-    $queryResult = $db->selectQuery($queryStr);
-   
-    if ($queryResult) {
-        
-        $userData = $queryResult->fetch_assoc();
-        
+    if ($userData[0]) {
        
-        $name = $userData['name'];
-        $surname = $userData['surname'];
-        $job = $userData['job'];
-        $description = $userData['bio'];
-
+        $name = $userData[0]['name'];
+        $surname = $userData[0]['surname'];
+        $job = $userData[0]['job'];
+        $bio =$userData[0]['bio'];
+        $twitterLink = $userData[0]['twitter'];
+        $instagramLink = $userData[0]['instagram'];
+        $facebookLink = $userData[0]['facebook'];
+        $linkedinLink = $userData[0]['linkedin']; 
     
-        $description = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint a assumenda modi deleniti eveniet inventore nam voluptate sapiente eum quibusdam! Id, voluptates obcaecati? Laudantium nostrum similique architecto, delectus enim sequi quos labore perferendis provident tenetur, aliquid vitae eius cupiditate hic?';
+        $bio = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint a assumenda modi deleniti eveniet inventore nam voluptate sapiente eum quibusdam! Id, voluptates obcaecati? Laudantium nostrum similique architecto, delectus enim sequi quos labore perferendis provident tenetur, aliquid vitae eius cupiditate hic?';
+
+        $followsData = $userModel->getUserFollowersAndFollowingCount($userID);
+        $followingCount= $followsData['following_count'];
+        $followersCount=  $followsData['followers_count'];
 
     } else {
-        // Handle query error
-        echo "Error: ";
-    }
-
-    
-    $queryStr = "SELECT twitterLink,instagramLink,facebookLink,linkedinLink FROM socialLinks WHERE socialLinks.user_id = $userID";
-    $queryResult = $db->selectQuery($queryStr);
-    if ($queryResult) {
-        $userData = $queryResult->fetch_assoc();
-        
-        if($userData!=NULL)
-        {
-            $twitterLink = $userData['twitterLink'];
-            $instagramLink = $userData['instagramLink'];
-            $facebookLink = $userData['facebookLink'];
-            $linkedinLink = $userData['linkedinLink']; 
-        }
+        header('Location: 404.php');
     }
     ?>
     
@@ -65,9 +51,9 @@
                     <h1 class="userProfile__name"><?= $name." ".$surname?></h1>
                     <h2 class="userProfile__occupation"><?= $job?></h2>
 
-                    <p class="userProfile__description <?=$description==''?'hidden':''?>">
+                    <p class="userProfile__description <?=$bio==''?'hidden':''?>">
                         <span>Professional Experience</span></br>
-                        <?=$description?>
+                        <?=$bio?>
                     </p>
                 </div>
             </div>
@@ -112,11 +98,11 @@
         <div class="followers__container container">
             
             <div class="followers__element">
-                <h4><?=0?></h4>
+                <h4><?=$followersCount?></h4>
                 <p>Followers</p>
             </div>
             <div class="followers__element <?=$currentUserID==$userID?'followers__element__rightBorder':''?>">
-                <h4><?=0?></h4>
+                <h4><?=$followingCount?></h4>
                 <p>Following</p>
             </div>
             <?php
@@ -151,7 +137,7 @@
     </header>
     <section class="container post__section">
         <?php include "../includes/postContainer.php";
-            renderUsersPost($userID,true);
+            renderUsersPost($userID,false);
         ?>
     </section>
     <script src="../../js/loadPosts.js"></script>

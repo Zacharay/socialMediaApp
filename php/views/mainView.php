@@ -15,7 +15,7 @@
         <?php 
 
             include "../includes/postContainer.php";
-            renderUsersPost($currentUserID,false);
+            renderUsersPost($currentUserID,true);
         ?>
     </section>
     <script src="../../js/slider.js"></script>
