@@ -1,12 +1,12 @@
 <?php
-class Database {
+class Model {
     private $host = "localhost";
     private $dbname = "socialmediaapp";
     private $username = "root";
     private $password = "";
-    private $conn;
+    protected $conn;
 
-    public function __construct() {
+    protected function __construct() {
         try {
             $this->conn = new PDO("mysql:host=$this->host;dbname=$this->dbname;charset=utf8mb4", $this->username, $this->password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -16,15 +16,13 @@ class Database {
         }
     }
 
-    public function getConnection() {
-        return $this->conn;
-    }
-
     public function getLastInsertId(){
         return $this->conn->lastInsertId();
     }
+    protected function prepareQuery($query)
+    {
+       return $this->conn->prepare($query);
+    } 
 }
-
-?>
 
 ?>

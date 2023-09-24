@@ -1,6 +1,5 @@
 <?php 
 
-include "../models/databaseModel.php";
 include "../models/UserModel.php";
 
 
@@ -16,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    
 
-    $db = new Database();
     $userModel = new UserModel($db);
 
     if($userModel->doesUsernameExists(($username)))
@@ -35,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if($result)
     {
-        $userID = $db->getLastInsertId();
+        $userID = $userModel->getLastInsertId();
         session_start();
         $_SESSION['userID'] = $userID;
 

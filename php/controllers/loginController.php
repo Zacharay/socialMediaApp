@@ -1,8 +1,6 @@
 <?php 
-    include "../models/databaseModel.php";
     include "../models/UserModel.php";
     
-    $db = new Database();
     $userModel = new UserModel($db);
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

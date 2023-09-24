@@ -29,7 +29,7 @@ class SearchUsers {
 
     async fetchUsers(formData) {
         try {
-            const response = await fetch('../models/searchUsersModel.php', {
+            const response = await fetch('../controllers/searchUsersController.php', {
                 method: 'POST',
                 body: formData,
             });
