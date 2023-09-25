@@ -6,6 +6,7 @@ function includePostTemplate($userid, $fullname, $postText,$postDate,$likesCount
     $template = str_replace('[[POST_TEXT]]', $postText, $template);
     $template = str_replace('[[POST_DATE]]', $postDate, $template);
     $template = str_replace('[[LIKES_COUNT]]', $likesCount, $template);
+    $template = str_replace('[[POST_ID]]', 0, $template);
 
 
     $sliderHTML='';

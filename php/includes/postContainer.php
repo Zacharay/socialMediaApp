@@ -14,6 +14,7 @@
 
                 for($i = 0;$i<count($posts);$i++)
                 {
+                        $postUserID = isset($posts[$i]['user_id'])?$posts[$i]['user_id']:-1;
                         $userName = $posts[$i]['userName'];
                         $userSurname = $posts[$i]['userSurname'];
                         $postID = $posts[$i]['postID'];
@@ -21,7 +22,7 @@
                         $uploadDate = $posts[$i]['uploadDate'];
                         $photosCount = $posts[$i]['photosCount'];
                         $likes = $posts[$i]['likes'];
-                        echo includePostTemplate($userID,$userName." ".$userSurname,$content,$uploadDate,$likes,$postID,$photosCount);
+                        echo includePostTemplate($postUserID==-1?$userID:$postUserID,$userName." ".$userSurname,$content,$uploadDate,$likes,$postID,$photosCount);
                 }
 
 

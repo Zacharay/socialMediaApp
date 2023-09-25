@@ -44,6 +44,7 @@ class PostModel extends Model
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $posts[]=array(
+                'user_id'=>$row['user_id'],
                 'userName' => $row['name'],
                 'userSurname' => $row['surname'],
                 'postID' => $row['id'],

@@ -34,4 +34,5 @@
     </nav>
     <?php require "createPostModal.php"; ?>
     <script src="../../js/searchbar.js"></script>
+    <script src="../../js/loadTheme.js"></script>
 </body>
