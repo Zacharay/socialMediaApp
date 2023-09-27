@@ -12,7 +12,7 @@
     <?php
         include "../includes/navbar.php";
     ?>
-    <section class="section--container">
+    <section class="comments__section__container">
         <div class="comments__section">
             <div class="comment">
                 <div class="comment__container">
