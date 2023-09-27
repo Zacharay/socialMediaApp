@@ -11,6 +11,9 @@
 <body>
     <?php
         include "../includes/navbar.php";
+        $postID = isset($_GET['postID'])?$_GET['postID']:-1;
+
+        if($postID==-1)header('Location: 404.php');
     ?>
     <section class="comments__section__container">
         <div class="comments__section">
@@ -163,12 +166,29 @@
             </div>
             <div class="comment__publish__container">
                 <img src="../../images/profilePhotos/userPhoto_1.png" class="comment__publish__img"/>
-                <textarea  class="comment__publish__input" placeholder="Add a comment..."></textarea>
+            <form method="POST" action="../controllers/commentController.php?postID=<?=$postID?>" class="comment__form">
+                <textarea  class="comment__publish__input" placeholder="Add a comment..." name="comment__content"></textarea>
                 <button class="comment__publish__btn">SEND</button>
+            </form>
             </div>
         </div>
         
     </section>
-    
+    <script>
+            const commentForm = document.querySelector(".comment__form");
+            console.log(commentForm);
+            commentForm.addEventListener('submit',function(e){
+                e.preventDefault();
+                const commentContent = document.querySelector(".comment__publish__input").value;
+                if(commentContent=='')
+                {
+                    document.querySelector(".comment__publish__input").style="border:1px solid var(--error-color)";
+                }
+                else{
+                    document.querySelector(".comment__publish__input").style="border:1px solid var(--secondary-light)";
+                    this.submit();
+                }
+            })
+        </script>
 </body>
 </html>

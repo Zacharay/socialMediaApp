@@ -121,3 +121,8 @@
     color:white;
     padding:1rem 3.2rem;
 }
+.comment__form{
+    width:100%;
+    display:flex;
+    gap:3.2rem;
+}
