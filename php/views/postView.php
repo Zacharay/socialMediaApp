@@ -4,16 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/comment.css">
+    <link rel="stylesheet" href="../../styles/postView.css">
+    <link rel="stylesheet" href="../../styles/postContainer.css">
     <script src="https://kit.fontawesome.com/555617a6c2.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <?php
         include "../includes/navbar.php";
+        require_once "../includes/userPost.php";
+        require_once "../models/PostModel.php";
         $postID = isset($_GET['postID'])?$_GET['postID']:-1;
 
         if($postID==-1)header('Location: 404.php');
+
+        $postModel = new PostModel();
+        $postData = $postModel->getPostByID($postID);
+        $userID = $postData[0]['user_id'];
+        $postID = $postData[0]['postID'];
+        $userName = $postData[0]['userName'];
+        $userSurname = $postData[0]['userSurname'];
+        $postContent = $postData[0]['content'];
+        $postDate = $postData[0]['uploadDate'];
+        $likesCount =$postData[0]['likes'];
+        $photosCount = $postData[0]['photosCount'];
+
+        echo "<section class='comments__post__container'>";
+        echo includePostTemplate( $userID,$userName." ".$userSurname,$postContent,$postDate,$likesCount,$postID,$photosCount);
+        echo "</section>";
     ?>
     <section class="comments__section__container">
         <div class="comments__section">
@@ -189,6 +207,13 @@
                     this.submit();
                 }
             })
+            const postContainer =  document.querySelector(".post__container");
+            postContainer.style="width:100rem;";
+            const sliderContainer = document.querySelector(".slider__container");
+            sliderContainer.style="height:100%;";
+        
         </script>
+        <script src="../../js/loadPosts.js"></script>
+        <script src="../../js/slider.js"></script>
 </body>
 </html>

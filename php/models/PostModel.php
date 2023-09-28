@@ -56,6 +56,31 @@ class PostModel extends Model
         }
         return $posts;
     }
+    public function getPostByID($postID)
+    {
+        $query= 'SELECT users.name,users.surname,posts.user_id,posts.id,content,upload_date,photos_count,likes from posts inner join users on posts.user_id=users.id where  posts.id=:postID';
+
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(':postID', $postID);
+                
+        $stmt->execute();
+
+        $postData = array();
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $postData[]=array(
+                'user_id'=>$row['user_id'],
+                'userName' => $row['name'],
+                'userSurname' => $row['surname'],
+                'postID' => $row['id'],
+                'content' => $row['content'],
+                'uploadDate' => $row['upload_date'],
+                'photosCount' => $row['photos_count'],
+                'likes' => $row['likes']
+            ); 
+        }
+        return $postData;
+    }
 
 }
 
