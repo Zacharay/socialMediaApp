@@ -20,6 +20,27 @@ class CommentModel extends Model{
         $stmt->execute();
 
     }
+    public function getPostComments($postID)
+    {
+        $query = "SELECT user_id ,users.name,users.surname,content,upload_date from comments inner join users on users.id = comments.user_id where comments.post_id = :postID";
+
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(":postID",$postID);
+        $stmt->execute();
+
+        $comments = array();
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $comments[]=array(
+                'user_id'=>$row['user_id'],
+                'userName' => $row['name'],
+                'userSurname' => $row['surname'],
+                'content' => $row['content'],
+                'uploadDate' => $row['upload_date'],
+            ); 
+        }
+        return $comments;
+    }
 
     
 }

@@ -35,153 +35,27 @@
     ?>
     <section class="comments__section__container">
         <div class="comments__section">
-            <div class="comment">
-                <div class="comment__container">
-                    <div class="comment__upvote__container">
-                        <i class="fa-solid fa-plus "></i>
-                        <h4 class="comment__upvote__count">12</h4>
-                        <i class="fa-solid fa-minus"></i>
-                    </div>
-                    <div class="comment__main">
-                        <div class="comment__info">
-                            <div class="comment__info__user">
-                                <img src="../../images/profilePhotos/userPhoto_1.png" class="comment__userImage"/>
-                                <h3 class="comment__user__fullname">John Doe</h3>
-                            
-                                <h4 class="comment__date">20.09.2023</h4>
-                                <h4 class="comment__youTag">you</h4>
-                            </div>
-                            
-                            <i class="fa-solid fa-reply comment__replyBtn"></i>
-                        </div>
-                        <p class="comment__content">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, expedita earum! Consectetur beatae dolor dignissimos, excepturi consequuntur, error odit est dicta, accusantium rem iusto voluptatem nemo id amet recusandae architecto!
-                        </p>
-                    </div>
-                </div>
-                <div class="replies__container">
-                    <div class="comment__container">
-                        <div class="comment__upvote__container">
-                            <i class="fa-solid fa-plus "></i>
-                            <h4 class="comment__upvote__count">12</h4>
-                            <i class="fa-solid fa-minus"></i>
-                        </div>
-                        <div class="comment__main">
-                            <div class="comment__info">
-                                <div class="comment__info__user">
-                                    <img src="../../images/profilePhotos/userPhoto_1.png" class="comment__userImage"/>
-                                    <h3 class="comment__user__fullname">John Doe</h3>
-                                
-                                    <h4 class="comment__date">20.09.2023</h4>
-                                    <h4 class="comment__youTag">you</h4>
-                                </div>
-                                
-                                <i class="fa-solid fa-reply comment__replyBtn"></i>
-                            </div>
-                            <p class="comment__content">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, expedita earum! Consectetur beatae dolor dignissimos, excepturi consequuntur, error odit est dicta, accusantium rem iusto voluptatem nemo id amet recusandae architecto!
-                            </p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="comment">
-                <div class="comment__container">
-                    <div class="comment__upvote__container">
-                        <i class="fa-solid fa-plus "></i>
-                        <h4 class="comment__upvote__count">12</h4>
-                        <i class="fa-solid fa-minus"></i>
-                    </div>
-                    <div class="comment__main">
-                        <div class="comment__info">
-                            <div class="comment__info__user">
-                                <img src="../../images/profilePhotos/userPhoto_1.png" class="comment__userImage"/>
-                                <h3 class="comment__user__fullname">John Doe</h3>
-                            
-                                <h4 class="comment__date">20.09.2023</h4>
-                                <h4 class="comment__youTag">you</h4>
-                            </div>
-                            
-                            <i class="fa-solid fa-reply comment__replyBtn"></i>
-                        </div>
-                        <p class="comment__content">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, expedita earum! Consectetur beatae dolor dignissimos, excepturi consequuntur, error odit est dicta, accusantium rem iusto voluptatem nemo id amet recusandae architecto!
-                        </p>
-                    </div>
-                </div>
-                <div class="replies__container">
-                    <div class="comment__container">
-                        <div class="comment__upvote__container">
-                            <i class="fa-solid fa-plus "></i>
-                            <h4 class="comment__upvote__count">12</h4>
-                            <i class="fa-solid fa-minus"></i>
-                        </div>
-                        <div class="comment__main">
-                            <div class="comment__info">
-                                <div class="comment__info__user">
-                                    <img src="../../images/profilePhotos/userPhoto_1.png" class="comment__userImage"/>
-                                    <h3 class="comment__user__fullname">John Doe</h3>
-                                
-                                    <h4 class="comment__date">20.09.2023</h4>
-                                    <h4 class="comment__youTag">you</h4>
-                                </div>
-                                
-                                <i class="fa-solid fa-reply comment__replyBtn"></i>
-                            </div>
-                            <p class="comment__content">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, expedita earum! Consectetur beatae dolor dignissimos, excepturi consequuntur, error odit est dicta, accusantium rem iusto voluptatem nemo id amet recusandae architecto!
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment__container">
-                    <div class="comment__upvote__container">
-                        <i class="fa-solid fa-plus "></i>
-                        <h4 class="comment__upvote__count">12</h4>
-                        <i class="fa-solid fa-minus"></i>
-                    </div>
-                    <div class="comment__main">
-                        <div class="comment__info">
-                            <div class="comment__info__user">
-                                <img src="../../images/profilePhotos/userPhoto_1.png" class="comment__userImage"/>
-                                <h3 class="comment__user__fullname">John Doe</h3>
-                            
-                                <h4 class="comment__date">20.09.2023</h4>
-                                <h4 class="comment__youTag">you</h4>
-                            </div>
-                            
-                            <i class="fa-solid fa-reply comment__replyBtn"></i>
-                        </div>
-                        <p class="comment__content">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, expedita earum! Consectetur beatae dolor dignissimos, excepturi consequuntur, error odit est dicta, accusantium rem iusto voluptatem nemo id amet recusandae architecto!
-                        </p>
-                    </div>
-                </div>
-                <div class="comment__container">
-                    <div class="comment__upvote__container">
-                        <i class="fa-solid fa-plus "></i>
-                        <h4 class="comment__upvote__count">12</h4>
-                        <i class="fa-solid fa-minus"></i>
-                    </div>
-                    <div class="comment__main">
-                        <div class="comment__info">
-                            <div class="comment__info__user">
-                                <img src="../../images/profilePhotos/userPhoto_1.png" class="comment__userImage"/>
-                                <h3 class="comment__user__fullname">John Doe</h3>
-                            
-                                <h4 class="comment__date">20.09.2023</h4>
-                                <h4 class="comment__youTag">you</h4>
-                            </div>
-                            
-                            <i class="fa-solid fa-reply comment__replyBtn"></i>
-                        </div>
-                        <p class="comment__content">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, expedita earum! Consectetur beatae dolor dignissimos, excepturi consequuntur, error odit est dicta, accusantium rem iusto voluptatem nemo id amet recusandae architecto!
-                        </p>
-                    </div>
-                </div>
-                </div>
-            </div>
+            <?php
+            require_once "../models/CommentModel.php";
+            $commentModel = new CommentModel();
+
+            $commentsData = $commentModel->getPostComments($postID);
+            for($i=0;$i<count($commentsData);$i++)
+            {
+                
+                $template = file_get_contents('../../templates/comment_template.html');
+                $template = str_replace('[[USER_ID]]', $commentsData[$i]['user_id'], $template);
+                $template = str_replace('[[USER_FULLNAME]]', $commentsData[$i]['userName']." ".$commentsData[$i]['userSurname'], $template);
+                $template = str_replace('[[CONTENT]]', $commentsData[$i]['content'], $template);
+                $template = str_replace('[[UPLOAD_DATE]]', date("d-m-Y", strtotime($commentsData[$i]['uploadDate'])), $template);
+                echo $template;
+            }
+
+            
+
+            ?>
+
+
             <div class="comment__publish__container">
                 <img src="../../images/profilePhotos/userPhoto_1.png" class="comment__publish__img"/>
             <form method="POST" action="../controllers/commentController.php?postID=<?=$postID?>" class="comment__form">
