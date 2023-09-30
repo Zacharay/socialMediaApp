@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../styles/loginForm.css">
     <title>Document</title>
 </head>
-<body>
+<body data-theme='dark'>
 <div class="login__container">
         <h1 class="login__title">SIGN IN</h1>
         <form class="login__form" method="POST" action="../controllers/loginController.php">

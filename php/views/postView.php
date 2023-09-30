@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/555617a6c2.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body>
+<body data-theme='dark'>
     <?php
         include "../includes/navbar.php";
         require_once "../includes/userPost.php";
@@ -20,6 +20,7 @@
 
         $postModel = new PostModel();
         $postData = $postModel->getPostByID($postID);
+        if($postData==null)header('Location: 404.php');
         $userID = $postData[0]['user_id'];
         $postID = $postData[0]['postID'];
         $userName = $postData[0]['userName'];
@@ -40,24 +41,39 @@
             $commentModel = new CommentModel();
 
             $commentsData = $commentModel->getPostComments($postID);
+            $currentUserID = $_SESSION['userID'];
             for($i=0;$i<count($commentsData);$i++)
             {
                 
                 $template = file_get_contents('../../templates/comment_template.html');
-                $template = str_replace('[[USER_ID]]', $commentsData[$i]['user_id'], $template);
+                $template = str_replace('[[USER_ID]]', $commentsData[$i]['userID'], $template);
                 $template = str_replace('[[USER_FULLNAME]]', $commentsData[$i]['userName']." ".$commentsData[$i]['userSurname'], $template);
                 $template = str_replace('[[CONTENT]]', $commentsData[$i]['content'], $template);
+                
                 $template = str_replace('[[UPLOAD_DATE]]', date("d-m-Y", strtotime($commentsData[$i]['uploadDate'])), $template);
+                
+
+                if($currentUserID==$commentsData[$i]['userID'])
+                {
+                    $commentID = $commentsData[$i]['commentID'];
+                    $template = str_replace('[[YOUTAG]]','<h4 class="comment__youTag">you</h4>', $template);
+                    $template = str_replace('[[DELETE_BTN]]',' <a href="../controllers/deleteCommentController.php?commentID='.$commentID.'&postID='.$postID.'"><i class="fa-solid fa-xmark"></i></a>', $template);
+                }
+                else{
+                    $template = str_replace('[[YOUTAG]]','', $template);
+                    $template = str_replace('[[DELETE_BTN]]','', $template);
+                }
                 echo $template;
             }
 
+          
             
 
             ?>
 
 
             <div class="comment__publish__container">
-                <img src="../../images/profilePhotos/userPhoto_1.png" class="comment__publish__img"/>
+                <img src="../../images/profilePhotos/userPhoto_<?= $currentUserID?>.png" class="comment__publish__img"/>
             <form method="POST" action="../controllers/commentController.php?postID=<?=$postID?>" class="comment__form">
                 <textarea  class="comment__publish__input" placeholder="Add a comment..." name="comment__content"></textarea>
                 <button class="comment__publish__btn">SEND</button>

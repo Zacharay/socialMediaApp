@@ -22,7 +22,7 @@ class CommentModel extends Model{
     }
     public function getPostComments($postID)
     {
-        $query = "SELECT user_id ,users.name,users.surname,content,upload_date from comments inner join users on users.id = comments.user_id where comments.post_id = :postID";
+        $query = "SELECT comments.id,user_id ,users.name,users.surname,content,upload_date from comments inner join users on users.id = comments.user_id where comments.post_id = :postID";
 
         $stmt = $this->prepareQuery($query);
         $stmt->bindParam(":postID",$postID);
@@ -32,7 +32,8 @@ class CommentModel extends Model{
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $comments[]=array(
-                'user_id'=>$row['user_id'],
+                'commentID'=>$row['id'],
+                'userID'=>$row['user_id'],
                 'userName' => $row['name'],
                 'userSurname' => $row['surname'],
                 'content' => $row['content'],
@@ -41,7 +42,16 @@ class CommentModel extends Model{
         }
         return $comments;
     }
+    public function deleteComment($userID,$commentID)
+    {
+        $query = "DELETE FROM comments WHERE comments.id = :commentID AND comments.user_id = :userID";
+        $stmt = $this->prepareQuery($query);
 
+        $stmt->bindParam(":userID",$userID);
+        $stmt->bindParam(":commentID",$commentID);
+
+        $stmt->execute();
+    }
     
 }
 

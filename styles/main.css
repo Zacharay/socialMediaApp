@@ -6,7 +6,7 @@
     --main-light:white;
     --secondary-light:#d3d4d9;
     --main-dark:#0a1f30;
-    --section-gray:#f5f7fe;
+    --section-gray:#edf2ff;
     --shadow-main:rgba(66, 68, 90, 1);
   }
 *{
@@ -35,7 +35,7 @@ body[data-theme='dark']
 }
 body{
   color:var(--main-dark);
-  background-color:var(--main-light);
+  background-color:var(--section-gray);
 }
 
 

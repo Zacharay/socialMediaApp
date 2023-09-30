@@ -7,11 +7,11 @@
     <script src="https://kit.fontawesome.com/555617a6c2.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body>
+<body data-theme='dark'>
     <?php 
     require "../includes/navbar.php";
     ?>
-    <section class="container post__section">
+    <section class="post__section">
         <?php 
 
             include "../includes/postContainer.php";

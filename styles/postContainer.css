@@ -3,6 +3,7 @@
     display:flex;
     flex-direction: column;
     gap:6.4rem;
+    background-color: var(--section-gray);
 }
 .post__container
 { 
@@ -10,7 +11,7 @@
     margin:0 auto;
     width:80rem;
     padding:4.8rem;
-    box-shadow: 0px 0px 24px -15px var(--shadow-main);
+    background-color:var(--main-light);
     opacity:0;
     transform: translateY(10%);
     transition: all 1s;

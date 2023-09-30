@@ -13,6 +13,7 @@ if($_SESSION['userID']&&isset($_POST['comment__content']))
 
     $commentModel = new CommentModel();
     $commentModel->publishComment($userID,$postID,$commentContent);
+    header("Location:../views/postView.php?postID=".$postID);
 }
 else{
     header("Location: ../../index.php");

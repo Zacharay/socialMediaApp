@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../../styles/loginForm.css">
     <title></title>
 </head>
-<body>
+<body data-theme='dark'>
     <?php  
     include "../controllers/registerController.php";
     $nameValue = isset($_GET['name']) ? $_GET['name'] : '';

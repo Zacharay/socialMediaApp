@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/555617a6c2.js" crossorigin="anonymous"></script>
     <title>Social Media</title>
 </head>
-<body>
+<body data-theme='dark'>
     <?php
     include "../models/UserModel.php";
 
@@ -135,7 +135,8 @@
 
         </div>
     </header>
-    <section class="container post__section">
+    
+    <section class="post__section">
         <?php include "../includes/postContainer.php";
             renderUsersPost($userID,false);
         ?>

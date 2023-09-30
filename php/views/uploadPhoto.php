@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../styles/loginForm.css">
     <title>Upload Photo</title>
 </head>
-<body>
+<body data-theme='dark'>
 
     <div class="login__container uploadPhoto__container">
         <img  src="../../images/profilePhotos/userPhoto_default.png" class="uploadPhoto__image"/>
