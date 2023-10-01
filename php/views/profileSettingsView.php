@@ -107,36 +107,88 @@
             </div>
             <div class="settings__content settings__hidden" id="settings__socials">
                 <h1 class="settings__title">Other Accounts</h1>
-                <form method="POST" action="../controllers/updateSocialsController.php?userID=<?=$userID?>" class="settings__form">
+                <form method="POST" action="../controllers/updateSocialsController.php" class="settings__form" id="otherAccounts__form">
                    <label class="settings__form__label">
                         <span>
                             <i class="fa-brands fa-facebook"></i>Facebook 
                         </span>
                         <input type="text" name="facebookLink" value="<?=$facebookLink?>"/>
+                        <p class="profile__error__msg error__hidden">This is not a valid facebook link.</p>
                     </label>
                     <label class="settings__form__label">
                         <span>
                             <i class="fa-brands fa-instagram"></i>Instagram 
                         </span>
                         <input type="text" name="instagramLink" value="<?=$instagramLink?>"/>
+                        <p class="profile__error__msg error__hidden">This is not a valid instagram link.</p>
                     </label>
                     <label class="settings__form__label">
                         <span>
                             <i class="fa-brands fa-linkedin"></i>Linkedin
                         </span>
                         <input type="text" name="linkedinLink" value="<?=$linkedinLink?>"/>
+                        <p class="profile__error__msg error__hidden">This is not a valid linkedin link.</p>
                     </label>
                     <label class="settings__form__label">
                         <span>
                             <i class="fa-brands fa-twitter"></i>Twitter
                         </span>
                         <input type="text" name="twitterLink" value="<?=$twitterLink?>"/>
+                        <p class="profile__error__msg error__hidden">This is not a valid twitter link.</p>
                     </label>
                    <button class="btn--primary ">Update</button>
             </form>
             </div>
         </div>
     </section>
+    <script>
+        const otherAccountsForm = document.querySelector("#otherAccounts__form");
+
+        otherAccountsForm.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            const facebookLink = e.target.querySelector('input[name="facebookLink"]').value;
+            const instagramLink =  e.target.querySelector('input[name="instagramLink"]').value;
+            const linkedinLink =  e.target.querySelector('input[name="linkedinLink"]').value;
+            const twitterLink =  e.target.querySelector('input[name="twitterLink"]').value;
+            const errorMessages = e.target.querySelectorAll(".profile__error__msg");
+
+            let error = false;
+
+            if(
+            (!facebookLink.toLowerCase().includes('facebook')
+            ||!facebookLink.toLowerCase().includes('https://www.'))&&facebookLink!='')
+            {
+                error=true;
+                errorMessages[0].classList.remove('error__hidden');
+            };
+            if(
+            (!instagramLink.toLowerCase().includes('instagram')
+            ||!instagramLink.toLowerCase().includes('https://www.')) &&instagramLink!='')
+            {
+                error=true;
+                errorMessages[1].classList.remove('error__hidden');
+            };
+            if(
+            (!linkedinLink.toLowerCase().includes('linkedin')
+            ||!linkedinLink.toLowerCase().includes('https://www.'))&&linkedinLink!='')
+            {
+                error=true;
+                errorMessages[2].classList.remove('error__hidden');
+            };
+            if(
+            (!twitterLink.toLowerCase().includes('twitter')
+            ||!twitterLink.toLowerCase().includes('https://www.'))&&twitterLink!='')
+            {
+                error=true;
+                errorMessages[3].classList.remove('error__hidden');
+            };
+
+            if(!error)
+            {
+                e.target.submit();
+            }
+        })
+    </script>
     <script src="../../js/profileSettings.js"></script>
     <script src="../../js/loadTheme.js"></script>
 </body>

@@ -143,6 +143,15 @@
 }
 .settings__form__label span{
     display:flex;
-    gap:0.4rem;
+    gap:1rem;
     align-items: center;
+}
+.profile__error__msg{
+    color:var(--error-color);
+    font-size:1.6rem;
+    transition: all 0.2s;
+}
+.error__hidden{
+    transform: translateY(-100%);
+    opacity:0;
 }

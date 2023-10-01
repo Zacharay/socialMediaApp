@@ -120,6 +120,25 @@ class UserModel extends Model {
             'following_count' => $row['following_count'],
         ];
     }
+    public function updateSocialLinks($userID,$facebookLink,$instagramLink,$linkedinLink,$twitterLink)
+    {
+        $query = "INSERT INTO sociallinks (user_id, facebookLink, instagramLink, linkedinLink, twitterLink)
+        VALUES (:userID, :facebookLink, :instagramLink, :linkedinLink, :twitterLink)
+        ON DUPLICATE KEY UPDATE
+            facebookLink = VALUES(facebookLink),
+            instagramLink = VALUES(instagramLink),
+            linkedinLink = VALUES(linkedinLink),
+            twitterLink = VALUES(twitterLink);";
+
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(':userID', $userID);
+        $stmt->bindParam(':facebookLink', $facebookLink);
+        $stmt->bindParam(':instagramLink', $instagramLink);
+        $stmt->bindParam(':linkedinLink', $linkedinLink);
+        $stmt->bindParam(':twitterLink', $twitterLink);
+
+        $stmt->execute();
+    }
 
     public function doesUsernameExists($username)
     {
