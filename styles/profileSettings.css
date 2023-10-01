@@ -1,0 +1,104 @@
+.settings__container{
+    display:flex;
+    gap:4.8rem;
+    margin:0 auto;
+    background-color: var(--main-light);
+    width:100rem;
+    margin-top:4.8rem;
+    border-radius: 7px;
+    padding:3.2rem;
+}
+.settings__title{
+    font-size:3.2rem;
+    letter-spacing: 2px;
+    margin-bottom:2rem;
+    font-weight: bold;
+}
+.settings__nav{
+    border-right:2px solid var(--section-gray);
+    padding-right:3.2rem;
+}
+.settings__nav__list{
+    display: flex;
+    flex-direction: column;
+    gap:1.6rem;
+}
+.settings__nav__btn{
+    font-size:2rem;
+    cursor:pointer;
+    background-color:var(--section-gray);
+    padding:1rem;
+    border-radius:7px;
+    
+}
+.settings__nav__btn i{
+    margin-right:1.2rem;
+}
+.settings__nav__btn--active{
+    color:var(--blue-main);
+}
+.settings__hidden{
+    display:none;
+}
+.settings__photo__container{
+    display:flex;   
+    gap:4.8rem;
+    align-items: center;
+}
+.settings__photo__container img{
+    width:20rem;
+    border-radius: 100%;
+    border:2px solid var(--blue-main);
+}
+.settings__photo__container div{
+    display:flex;
+    gap:1.6rem;
+    align-items: center;
+    flex-direction: column;
+}
+.settings__main{
+    width:100%;
+}
+.settings__content{
+    width:100%;
+}
+.settings__form
+{
+    margin-top:3.2rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.6rem;
+}
+.settings__form__wrapper{
+    display:flex;
+    width:100%;
+    gap:3.2rem;
+}
+.settings__form__wrapper label{
+
+    width:100%;
+}
+.settings__form__label{
+    display:flex;
+    flex-direction: column;
+    gap:0.6rem;
+    font-size:2.4rem;
+}
+.settings__form__label input ,.settings__form__label textarea {
+    font-size:1.6rem;
+    padding:0.8rem 0.8rem;
+    border-radius:7px;
+    border:none;
+    outline: none;
+   
+}
+.settings__form__label textarea{
+    resize: none;
+    width:80%;
+    height:10rem;
+}
+.settings__form button{
+    margin-top:2.4rem;
+    width:50% !important;
+    align-self: flex-end;
+}

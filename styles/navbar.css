@@ -1,4 +1,4 @@
-nav{
+.main__nav{
     background-color: var(--blue-main);
     animation: slideDown 0.6s ease forwards;
    

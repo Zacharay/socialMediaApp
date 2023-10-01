@@ -99,6 +99,7 @@
     border: none;
     color:white;
     padding:1rem 3.2rem;
+    width:fit-content !important;
 }
 .comment__form{
     width:100%;

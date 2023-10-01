@@ -102,26 +102,7 @@ class UserModel extends Model {
             'following_count' => $row['following_count'],
         ];
     }
-    public function getUserFollowingCount($userID){
-        $query = "SELECT COUNT(*) AS following_count FROM follows where follows.follower_id =:userID";
-        $stmt = $this->prepareQuery($query);
-        $stmt->bindParam(":userID",$userID);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        return $row['following_count'];
-
-    }
-    public function getUserFollowersCount($userID){
-        $query = "SELECT COUNT(*) AS followers_count FROM follows where follows.following_id =:userID";
-        $stmt = $this->prepareQuery($query);
-        $stmt->bindParam(":userID",$userID);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        return $row['followers_count'];
-
-    }
     public function doesUsernameExists($username)
     {
         $query = "SELECT COUNT(*) FROM users WHERE users.username = :username";

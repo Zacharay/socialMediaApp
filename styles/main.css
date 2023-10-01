@@ -51,8 +51,8 @@ body{
     border:none;
     color:white;
     font-size:2rem;
-    padding:0.8rem 0.0rem;
-
+    padding:0.8rem 1.6rem;
+    border-radius: 7px;
     cursor:pointer;
     transition: all 0.2s;
 }

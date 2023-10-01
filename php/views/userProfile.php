@@ -92,7 +92,14 @@
                         </li>':'';
                     ?>
                 </ul>
-                <button class="btn--primary" id="message__btn"><i class="fa-regular fa-envelope"></i>Send Message</button>
+                <?php
+                if($currentUserID==$userID)
+                    echo ' <a class="btn--primary" id="message__btn" href="profileSettingsView.php"><i class="fa-solid fa-gear"></i>Edit Profile</a>';
+                else{
+                    echo ' <a class="btn--primary" id="message__btn" href="conversationView.php"><i class="fa-regular fa-envelope"></i>Send Message</a>';
+                }
+                ?>
+               
             </div>
         </div>
         <div class="followers__container container">

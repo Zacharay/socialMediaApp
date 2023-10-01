@@ -76,7 +76,7 @@
                 <img src="../../images/profilePhotos/userPhoto_<?= $currentUserID?>.png" class="comment__publish__img"/>
             <form method="POST" action="../controllers/commentController.php?postID=<?=$postID?>" class="comment__form">
                 <textarea  class="comment__publish__input" placeholder="Add a comment..." name="comment__content"></textarea>
-                <button class="comment__publish__btn">SEND</button>
+                <button class="comment__publish__btn btn--primary">SEND</button>
             </form>
             </div>
         </div>
