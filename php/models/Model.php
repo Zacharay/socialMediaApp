@@ -24,5 +24,4 @@ class Model {
        return $this->conn->prepare($query);
     } 
 }
-
 ?>

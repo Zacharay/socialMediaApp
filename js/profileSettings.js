@@ -44,3 +44,26 @@ accountSettingsBtn.forEach((btn,idx)=>{
     })
 })
 
+async function  sendEmail() {
+    try {
+        const response = await fetch('../includes/sendVerificationToken.php', {
+            method: 'POST',
+        });
+        const responseData = await response.json();
+        console.log(responseData);
+        if (!response.ok) {
+            throw new Error(`Error! Status: ${response.status}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+const sendEmailBtns = document.querySelectorAll(".send__email__btn");
+
+sendEmailBtns.forEach(btn=>{
+    btn.addEventListener('click',sendEmail);
+})
+
+
+

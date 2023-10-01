@@ -139,7 +139,18 @@ class UserModel extends Model {
 
         $stmt->execute();
     }
+    public function getUserEmailByID($userID)
+    {
+        $query = "SELECT users.email from users where users.id = :userID";
 
+        $stmt = $this->prepareQuery($query);
+
+        $stmt->bindParam(":userID",$userID);
+
+        $stmt->execute();
+        $email = $stmt->fetchColumn();
+        return $email;
+    }
     public function doesUsernameExists($username)
     {
         $query = "SELECT COUNT(*) FROM users WHERE users.username = :username";

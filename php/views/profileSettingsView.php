@@ -71,9 +71,9 @@
             <div class="settings__content settings__hidden"id="settings__account">
                 <h1 class="settings__title"> Account Settings</h1>
                 <div class="settings__account__btns">
-                    <button class="btn--primary settings__account__btn">Change Email</button>
+                    <button class="btn--primary settings__account__btn send__email__btn">Change Email</button>
                     
-                    <button class="btn--primary settings__account__btn">Change Password</button>
+                    <button class="btn--primary settings__account__btn send__email__btn">Change Password</button>
                     <button class="btn--primary settings__account__btn">Delete Account</button>
                 </div>
                 <div class="settings__account__verification settings__hidden">
