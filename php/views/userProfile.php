@@ -27,7 +27,6 @@
         $facebookLink = $userData[0]['facebook'];
         $linkedinLink = $userData[0]['linkedin']; 
     
-        $bio = 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint a assumenda modi deleniti eveniet inventore nam voluptate sapiente eum quibusdam! Id, voluptates obcaecati? Laudantium nostrum similique architecto, delectus enim sequi quos labore perferendis provident tenetur, aliquid vitae eius cupiditate hic?';
 
         $followsData = $userModel->getUserFollowersAndFollowingCount($userID);
         $followingCount= $followsData['following_count'];

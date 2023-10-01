@@ -48,7 +48,7 @@
             <ul>
         </nav>
         <div class="settings__main">
-            <div class="settings__content" id="settings__publicProfile">
+            <div class="settings__content " id="settings__publicProfile">
                 <h1 class="settings__title"> Public Profile</h1>
                 <div class="settings__photo__container">
                     <img src="../../images/profilePhotos/userPhoto_<?=$userID?>.png" alt="userPhoto"/>
@@ -70,12 +70,70 @@
             </div>
             <div class="settings__content settings__hidden"id="settings__account">
                 <h1 class="settings__title"> Account Settings</h1>
-                <button class="btn--primary">Change Email</button>
-                <button class="btn--primary">Change Password</button>
-                <button class="btn--primary">Delete Email</button>
+                <div class="settings__account__btns">
+                    <button class="btn--primary settings__account__btn">Change Email</button>
+                    
+                    <button class="btn--primary settings__account__btn">Change Password</button>
+                    <button class="btn--primary settings__account__btn">Delete Account</button>
+                </div>
+                <div class="settings__account__verification settings__hidden">
+                    <h3>We sent verification code to your email: alice_smith@example.com</h3>
+                    <label class="settings__form__label settings__account__label">Verification Code<input type="number" pattern="\d{1,6}"/></label>
+                    <label class="settings__form__label settings__account__label">New Email<input type="email"/></label>
+                    <label class="settings__form__label settings__account__label">Confirm Email<input type="email"/></label>
+                    <div class="account__btn__container">
+                        <button class="btn--primary account__back__btn"><i class="fa-solid fa-arrow-left"></i>Back</button>
+                        <button class="btn--primary">Confirm <i class="fa-solid fa-check"></i></button>
+                    </div>
+                </div>
+                <div class="settings__account__verification settings__hidden"> 
+                    <h3>We sent verification code to your email: alice_smith@example.com</h3>
+                    <label class="settings__form__label settings__account__label">Verification Code<input type="number" pattern="\d{1,6}"/></label>
+                    <label class="settings__form__label settings__account__label">Password<input type="password"/></label>
+                    <label class="settings__form__label settings__account__label">New Password<input type="password"/></label>
+                    <label class="settings__form__label settings__account__label">Confirm Password<input type="password"/></label>
+                    <div class="account__btn__container">
+                        <button class="btn--primary account__back__btn"><i class="fa-solid fa-arrow-left"></i>Back</button>
+                        <button class="btn--primary">Confirm <i class="fa-solid fa-check"></i></button>
+                    </div>
+                </div>
+                <div  class="settings__account__verification settings__hidden">
+                    <h3>Are you sure you want to delete your account</h3>
+                    <div class="account__btn__container">
+                        <button class="btn--primary account__back__btn"><i class="fa-solid fa-arrow-left"></i>Cancel</button>
+                        <button class="btn--primary">Confirm <i class="fa-solid fa-check"></i></button>
+                    </div>
+                </div>
             </div>
             <div class="settings__content settings__hidden" id="settings__socials">
                 <h1 class="settings__title">Other Accounts</h1>
+                <form method="POST" action="../controllers/updateSocialsController.php?userID=<?=$userID?>" class="settings__form">
+                   <label class="settings__form__label">
+                        <span>
+                            <i class="fa-brands fa-facebook"></i>Facebook 
+                        </span>
+                        <input type="text" name="facebookLink" value="<?=$facebookLink?>"/>
+                    </label>
+                    <label class="settings__form__label">
+                        <span>
+                            <i class="fa-brands fa-instagram"></i>Instagram 
+                        </span>
+                        <input type="text" name="instagramLink" value="<?=$instagramLink?>"/>
+                    </label>
+                    <label class="settings__form__label">
+                        <span>
+                            <i class="fa-brands fa-linkedin"></i>Linkedin
+                        </span>
+                        <input type="text" name="linkedinLink" value="<?=$linkedinLink?>"/>
+                    </label>
+                    <label class="settings__form__label">
+                        <span>
+                            <i class="fa-brands fa-twitter"></i>Twitter
+                        </span>
+                        <input type="text" name="twitterLink" value="<?=$twitterLink?>"/>
+                    </label>
+                   <button class="btn--primary ">Update</button>
+            </form>
             </div>
         </div>
     </section>

@@ -39,7 +39,7 @@
     color:var(--blue-main);
 }
 .settings__hidden{
-    display:none;
+    display:none !important;
 }
 .settings__photo__container{
     display:flex;   
@@ -56,6 +56,9 @@
     gap:1.6rem;
     align-items: center;
     flex-direction: column;
+}
+.settings__photo__container div a{
+    width:100%;
 }
 
 .settings__main{
@@ -89,6 +92,7 @@
     border-radius:7px;
     border:none;
     outline: none;
+    background-color:#e9ecef;
    
 }
 .settings__form__label textarea{
@@ -100,4 +104,45 @@
     margin-top:2.4rem;
     width:50% !important;
     align-self: flex-end;
+    
+}
+.settings__account__btns{
+    display:flex;
+    flex-direction: column ;
+    gap:2.4rem;
+}
+.settings__account__btns button {
+    width: fit-content;
+}
+
+.settings__account__label{
+    font-size:1.6rem;
+}
+.settings__account__verification{
+    display:flex;
+    flex-direction: column;
+    gap:2rem;
+}
+.settings__account__verification h3{
+    font-size:2rem;
+    font-weight: 500;
+    
+}
+.settings__account__label{
+    width:fit-content !important;
+}
+.account__btn__container{
+    display:flex;
+    gap:3.2rem;
+    margin-top:2rem;
+}
+.account__btn__container button{
+    display:flex;
+    align-items: center;
+    gap:1.2rem;
+}
+.settings__form__label span{
+    display:flex;
+    gap:0.4rem;
+    align-items: center;
 }
