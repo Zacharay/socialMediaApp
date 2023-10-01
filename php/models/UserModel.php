@@ -60,9 +60,9 @@ class UserModel extends Model {
         }
         return $data;
     }
-    public function getUserProfileDataById($userID)
+    public function getAllUserDataById($userID)
     {
-        $query = "SELECT name,surname,job,bio,twitterLink,instagramLink,facebookLink,linkedinLink FROM users LEFT OUTER JOIN sociallinks on users.id=sociallinks.user_id WHERE users.id = :userID";
+        $query = "SELECT name,surname,username,email,job,bio,twitterLink,instagramLink,facebookLink,linkedinLink FROM users LEFT OUTER JOIN sociallinks on users.id=sociallinks.user_id WHERE users.id = :userID";
 
         $stmt = $this->prepareQuery($query);
         $stmt->bindParam(":userID",$userID);
@@ -74,6 +74,8 @@ class UserModel extends Model {
         $data[]=array(
             'name'=>$row['name'],
             'surname'=>$row['surname'],
+            'username'=>$row['username'],
+            'email'=>$row['email'],
             'job'=>$row['job'],
             'bio'=>$row['bio'],
             'twitter'=>$row['twitterLink'],
@@ -82,6 +84,22 @@ class UserModel extends Model {
             'linkedin'=>$row['linkedinLink'],
         );
         return $data;
+    }
+    public function updatePublicProfileData($userID,$name,$surname,$username,$job,$bio)
+    {
+        $query = "UPDATE users SET users.name = :name, users.surname = :surname,users.username=:username, users.job = :job,users.bio = :bio WHERE users.id=:userID";
+
+        $stmt = $this->prepareQuery($query);
+
+        $stmt->bindParam(":userID",$userID);
+        $stmt->bindParam(":name",$name);
+        $stmt->bindParam(":surname",$surname);
+        $stmt->bindParam(":username",$username);
+        $stmt->bindParam(":bio",$bio);
+        $stmt->bindParam(":job",$job);
+
+        $stmt->execute();
+
     }
     public function getUserFollowersAndFollowingCount($userID){
         $query = "

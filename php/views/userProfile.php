@@ -14,7 +14,7 @@
 
     $userID = isset($_GET['userID']) ? $_GET['userID'] : -1;
     $userModel = new UserModel();
-    $userData = $userModel->getUserProfileDataById($userID);
+    $userData = $userModel->getAllUserDataById($userID);
 
     if ($userData[0]) {
        
