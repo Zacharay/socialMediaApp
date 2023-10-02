@@ -18,19 +18,72 @@
         <aside>
             <input type="text"  class="conversation__search"/>
             <ul class="conversation__list">
-                <li class="conversation__element">
-                    <img src="../../images/profilePhotos/userPhoto_1.png"/>
+                <li class="conversation__element conversation--active">                
+                    <img src="../../images/profilePhotos/userPhoto_1.png" class="conversation__userphoto"/>
                     <div class="conversation__wrapper">
-                        <h3>John Doe</h3>
-                        <p class="converstation__date"></p>
-                    </div>
-                    
-                    <p class="conversation__showcase__text">Hello world hello world</p>
+                        <div class="conversation__header">
+                            <h3 class="conversation__fullname">John Doe</h3>
+                            <p class="converstation__date">12:49AM</p>
+                        </div>   
+                            <p class="conversation__showcase__text">Hello world hello world</p>
+                        
+                    </div>           
+                </li>
+                <li class="conversation__element">                
+                    <img src="../../images/profilePhotos/userPhoto_1.png" class="conversation__userphoto"/>
+                    <div class="conversation__wrapper">
+                        <div class="conversation__header">
+                            <h3 class="conversation__fullname">John Doe</h3>
+                            <p class="converstation__date">12:49AM</p>
+                        </div>   
+                            <p class="conversation__showcase__text">Hello world hello world</p>
+                        
+                    </div>           
+                </li>
+                <li class="conversation__element">                
+                    <img src="../../images/profilePhotos/userPhoto_1.png" class="conversation__userphoto"/>
+                    <div class="conversation__wrapper">
+                        <div class="conversation__header">
+                            <h3 class="conversation__fullname">John Doe</h3>
+                            <p class="converstation__date">12:49AM</p>
+                        </div>   
+                            <p class="conversation__showcase__text">Hello world hello world</p>
+                        
+                    </div>           
                 </li>
             </ul>
         </aside>
-        <main>
-            <h1>Alice Smith</h1>
+        <main >
+            <h1 class="conversation__title">Alice Smith</h1>
+            <div class="message__container">
+                <div class="message message--currentUser">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis libero minima qui corrupti culpa consectetur incidunt. Velit, quaerat asperiores!
+                </div>
+                <div class="message message--otherUser">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <div class="message message--currentUser">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis libero minima qui corrupti culpa consectetur incidunt. Velit, quaerat asperiores!
+                </div>
+                <div class="message message--currentUser">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis libero minima qui corrupti culpa consectetur incidunt. Velit, quaerat asperiores!
+                </div>
+                <div class="message message--currentUser">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis libero minima qui corrupti culpa consectetur incidunt. Velit, quaerat asperiores!
+                </div>
+                <div class="message message--otherUser">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+
+                <div class="message message--otherUser">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+            </div>
+            <div class="message__input__container">
+                <i class="fa-solid fa-paper-plane"></i>
+                <input type="text" class="message__input" placeholder="Your message here..."/>
+            </div>
+            
         </main>
     </section>
 

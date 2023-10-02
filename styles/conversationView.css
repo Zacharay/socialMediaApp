@@ -1,0 +1,132 @@
+.conversation__section{
+    background-color:var(--main-light);
+    width:140rem;
+    margin:0 auto;
+    border-radius: 7px;
+    padding:3.2rem;
+    margin-top:4.8rem;
+    display:flex;
+    gap:3.2rem;
+
+    height:80rem;
+}
+.conversation__search{
+    font-size:1.8rem;
+    border-radius:50px;
+    border:none;
+    outline:none;
+    padding:1.2rem 1.6rem;
+    width:40rem;
+    margin-bottom:4.8rem;
+    background-color:#e9ecef;
+}
+aside{
+    border-right:2px solid var(--section-gray);
+    padding-right:3.2rem;
+}
+.conversation__list{
+    display:flex;
+    flex-direction:column;
+    gap:3.2rem;
+}
+.conversation__element{
+    display:flex;
+    gap:2rem;
+    width:100%;
+    padding:2rem 0rem;
+    padding-left:3.2rem;
+    cursor:pointer;
+    border-bottom:2px solid var(--section-gray);
+}
+.conversation--active{
+    border-left:2px solid var(--blue-main);
+}
+.conversation__wrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+    width:100%;
+}
+.conversation__header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.conversation__userphoto{
+    width:6.4rem;
+    height:6.4rem;
+    border-radius: 100%;
+}
+.conversation__fullname{
+    font-size:2.4rem;
+}
+.conversation__showcase__text{
+    font-size:1.6rem;
+    color:var(--secondary-light);
+}
+.converstation__date{
+    font-size:1.6rem;
+    color:var(--secondary-light);
+}
+main{
+    flex:1;
+    display:flex;
+    flex-direction: column;
+}
+.conversation__title{
+    font-size:4.8rem;
+    letter-spacing: 1px;
+    border-bottom:2px solid var(--section-gray);
+    width:100%;
+}
+
+.message__container{
+    display:flex;
+    flex-direction: column;
+    gap:1.6rem;
+    width:100%;
+    padding:2rem;
+    overflow-y:scroll;
+}
+.message--currentUser{
+    background-color:var(--blue-main);
+    color:white;
+    align-self: flex-end;
+}
+.message--otherUser{
+    background-color:var(--section-gray);
+    color:var(--main-dark);
+    align-self: flex-start;
+}
+.message{
+    padding:1.6rem;
+    width:70%;
+    border-radius:24px;
+    font-size:2rem;
+}
+.message__input{
+    font-size:2rem;
+    border:none;
+    outline:none;
+    border-radius:50px;
+    margin-top:2rem;
+    padding:2rem;
+    width:100%;
+}
+.message__input__container{
+    position:relative;
+}
+.message__input__container i{
+    position:absolute;
+    font-size:2.4rem;
+    background-color:var(--blue-main);
+    padding:1.6rem;
+    border-radius: 100%;
+    right:15px;
+    top:24px;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+.message__input__container i:hover{
+    background-color:var(--blue-main_light);
+}
