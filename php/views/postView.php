@@ -11,6 +11,8 @@
 </head>
 <body data-theme='dark'>
     <?php
+        require_once "../includes/routing.php";
+
         include "../includes/navbar.php";
         require_once "../includes/userPost.php";
         require_once "../models/PostModel.php";

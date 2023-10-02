@@ -27,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo 'File size is too large. Please upload a smaller file (max ' . ($maxFileSize / 1024 / 1024) . 'MB).';
         }
     } else {
-        echo 'Error uploading file: ' . $uploadedFile['error'];
+        header("Location: ../views/mainView.php");
+        // echo 'Error uploading file: ' . $uploadedFile['error'];
     }
 }
 ?>

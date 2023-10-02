@@ -6,6 +6,10 @@
     <?php 
     session_start();
     $currentUserID = $_SESSION['userID'];
+    $photoURL = file_exists("../../images/profilePhotos/userPhoto_".$currentUserID.".png")?
+    "../../images/profilePhotos/userPhoto_".$currentUserID.'.png':
+    '../../images/profilePhotos/userPhoto_default.png';
+
     ?>
     <nav class="main__nav">
         <div class="container navbar__container">
@@ -20,7 +24,7 @@
                 </div>
                 <a class="btn--primary" id="btn__createPost">Create Post</a>
                 <div class="navbar__userProfile">
-                    <img src="../../images/profilePhotos/userPhoto_<?=$currentUserID ?>.png" alt="User profile photo">
+                    <img src="<?=$photoURL?>" alt="User profile photo">
                     <div class="userProfile__dropdown">
                         <ul class="userProfile__dropdown__list">
                             <li class="userProfile__dropdown__listItem"><a href="../views/userProfile.php?userID=<?=$currentUserID ?>"><i class="fa-regular fa-user"></i> Profile</a></li>

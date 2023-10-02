@@ -10,9 +10,13 @@
 </head>
 <body data-theme='dark'>
     <?php
-    include "../models/UserModel.php";
+    require_once "../includes/routing.php";
 
+    include "../models/UserModel.php";
     $userID = isset($_GET['userID']) ? $_GET['userID'] : -1;
+
+    $photoURLProfile = file_exists("../../images/profilePhotos/userPhoto_".$userID.".png")?"../../images/profilePhotos/userPhoto_".$userID.'.png':'../../images/profilePhotos/userPhoto_default.png';
+
     $userModel = new UserModel();
     $userData = $userModel->getAllUserDataById($userID);
 
@@ -45,7 +49,7 @@
     ?>
         <div class="userProfile__header container">
             <div class="userProfile__header__info">
-                <img src="../../images/profilePhotos/userPhoto_<?=$userID?>.png" class="userProfile__photo"/>
+                <img src="<?=$photoURLProfile ?>" class="userProfile__photo"/>
                 <div>
                     <h1 class="userProfile__name"><?= $name." ".$surname?></h1>
                     <h2 class="userProfile__occupation"><?= $job?></h2>

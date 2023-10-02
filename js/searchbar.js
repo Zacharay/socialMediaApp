@@ -49,7 +49,23 @@ class SearchUsers {
         let html = '';
         if (usersData.length > 0) {
             usersData.forEach(user => {
-                html += `<li class="search__preview__element"><a href="../views/userProfile.php?userID=${user.id}"><img src="../../images/profilePhotos/userPhoto_${user.id}.png"/>${user.name} ${user.surname}</a></li>`;
+                const photoPath = `../../images/profilePhotos/userPhoto_${user.id}.png`;
+                
+                
+                fetch(photoPath)
+                    .then(response => {
+                        if (response.ok) {
+                            html += `<li class="search__preview__element"><a href="../views/userProfile.php?userID=${user.id}"><img src="${photoPath}" alt="${user.name} ${user.surname}"/>${user.name} ${user.surname}</a></li>`;
+                        } else {
+                            
+                            html += `<li class="search__preview__element"><a href="../views/userProfile.php?userID=${user.id}"><img src="../../images/profilePhotos/userPhoto_default.png" alt="Default User Photo"/>${user.name} ${user.surname}</a></li>`;
+                        }
+    
+                        this.searchbarPreview.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('Error checking image existence:', error);
+                    });
             });
         }
         this.searchbarPreview.innerHTML = html;

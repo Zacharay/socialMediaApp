@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php
+        require_once "../includes/routing.php";
         require_once "../includes/navbar.php";
         require_once "../models/UserModel.php";
 
@@ -17,6 +18,9 @@
         if(isset($_SESSION["userID"])){
             $userModel = new UserModel();
             $userID= $_SESSION["userID"];
+            $photoURL = file_exists("../../images/profilePhotos/userPhoto_".$userID.".png")?
+            "../../images/profilePhotos/userPhoto_".$userID.'.png':
+            '../../images/profilePhotos/userPhoto_default.png';
             $userData = $userModel->getAllUserDataById($userID);
 
             $name = $userData[0]['name'];
@@ -51,7 +55,7 @@
             <div class="settings__content " id="settings__publicProfile">
                 <h1 class="settings__title"> Public Profile</h1>
                 <div class="settings__photo__container">
-                    <img src="../../images/profilePhotos/userPhoto_<?=$userID?>.png" alt="userPhoto"/>
+                    <img src="<?=$photoURL?>" alt="userPhoto"/>
                     <div>
                         <a href="../views/uploadPhoto.php" class="btn--primary">Change Picture</a>
                         <a href="../views/uploadPhoto.php" class="btn--primary">Delete Picture</a>

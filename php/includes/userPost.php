@@ -1,13 +1,18 @@
 <?php
-function includePostTemplate($userid, $fullname, $postText,$postDate,$likesCount,$postID,$photosCount) {
+function includePostTemplate($userID, $fullname, $postText,$postDate,$likesCount,$postID,$photosCount) {
     $template = file_get_contents('../../templates/post_template.html');
-    $template = str_replace('[[USER_ID]]', $userid, $template);
+    $template = str_replace('[[USER_ID]]', $userID, $template);
     $template = str_replace('[[FULLNAME]]', $fullname, $template);
     $template = str_replace('[[POST_TEXT]]', $postText, $template);
     $template = str_replace('[[POST_DATE]]', $postDate, $template);
     $template = str_replace('[[LIKES_COUNT]]', $likesCount, $template);
     $template = str_replace('[[POST_ID]]', $postID, $template);
 
+    $photoURL = file_exists("../../images/profilePhotos/userPhoto_".$userID.".png")?
+    "../../images/profilePhotos/userPhoto_".$userID.'.png':
+    '../../images/profilePhotos/userPhoto_default.png';
+    $template = str_replace('[[PHOTO_URL]]', $photoURL, $template);
+    
 
     $sliderHTML='';
     $pathToImages = "../../images/postPhotos/";

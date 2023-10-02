@@ -9,6 +9,7 @@
 </head>
 <body data-theme='dark'>
     <?php 
+    require_once "../includes/routing.php";
     require "../includes/navbar.php";
     ?>
     <section class="post__section">

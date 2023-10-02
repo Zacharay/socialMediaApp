@@ -8,7 +8,7 @@
     <title>Upload Photo</title>
 </head>
 <body data-theme='dark'>
-
+    <?php require_once "../includes/routing.php";?>
     <div class="login__container uploadPhoto__container">
         <img  src="../../images/profilePhotos/userPhoto_default.png" class="uploadPhoto__image"/>
         <form id="uploadPhoto__form" method="POST" enctype="multipart/form-data" action="../controllers/uploadPhotoController.php">
@@ -21,7 +21,6 @@
         function displaySelectedImage() {
             const input = document.querySelector('#uploadPhoto__input--file');
             const image = document.querySelector('.uploadPhoto__image');
-            console.log(image);
 
             if (input.files && input.files[0]) {
                 const reader = new FileReader();
