@@ -59,8 +59,9 @@
                 <div class="message message--currentUser">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis libero minima qui corrupti culpa consectetur incidunt. Velit, quaerat asperiores!
                 </div>
-                <div class="message message--otherUser">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                <div class="message--otherUser--first">
+                    <img src="../../images/profilePhotos/userPhoto_2.png"/>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
                 <div class="message message--currentUser">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis libero minima qui corrupti culpa consectetur incidunt. Velit, quaerat asperiores!
@@ -70,6 +71,10 @@
                 </div>
                 <div class="message message--currentUser">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis libero minima qui corrupti culpa consectetur incidunt. Velit, quaerat asperiores!
+                </div>
+                <div class="message--otherUser--first">
+                    <img src="../../images/profilePhotos/userPhoto_2.png"/>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi expedita modi, ipsa consequuntur illo a. Ipsam, voluptates distinctio quae quibusdam debitis reiciendis iure quod adipisci quia inventore accusantium perspiciatis, sunt praesentium expedita. Consequuntur minus laborum velit mollitia libero repellat unde?</p>
                 </div>
                 <div class="message message--otherUser">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
@@ -78,8 +83,12 @@
                 <div class="message message--otherUser">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
                 </div>
+                <div class="message message--currentUser">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis libero minima qui corrupti culpa consectetur incidunt. Velit, quaerat asperiores!😂😂😂
+                </div>
             </div>
             <div class="message__input__container">
+                <i class="fa-solid fa-face-smile"></i>
                 <i class="fa-solid fa-paper-plane"></i>
                 <input type="text" class="message__input" placeholder="Your message here..."/>
             </div>
@@ -88,5 +97,17 @@
     </section>
 
     <script src="../../js/loadTheme.js"></script>
+    <script src="../../vendor/emojiPicker/vanillaEmojiPicker.js"></script>
+    <script>
+        new EmojiPicker({
+        trigger: [
+            {
+            selector: '.fa-face-smile',
+            insertInto: ['.message__input'] // '.selector' can be used without array
+            },
+        ],
+        closeButton: true,
+    });
+    </script>
 </body>
 </html>

@@ -83,7 +83,6 @@ main{
 .message__container{
     display:flex;
     flex-direction: column;
-    gap:1.6rem;
     width:100%;
     padding:2rem;
     overflow-y:scroll;
@@ -97,36 +96,72 @@ main{
     background-color:var(--section-gray);
     color:var(--main-dark);
     align-self: flex-start;
+    margin-left:6.4rem;
+    
+}
+.message--otherUser--first{
+    display:flex;
+    margin-bottom:0.8rem;
+    margin-top:1rem;
+}
+.message--otherUser--first p{
+    width:70%;
+    border-radius:24px;
+    font-size:2rem;
+    background-color: var(--section-gray);
+    padding:1.6rem;
+    margin-left:1.6rem;
+}
+.message--otherUser--first img{
+    width:4.8rem;
+    height:4.8rem;
+    border:2px solid var(--blue-main);
+    border-radius: 100%;
+    
 }
 .message{
     padding:1.6rem;
     width:70%;
     border-radius:24px;
     font-size:2rem;
+    margin-bottom:0.8rem;
 }
 .message__input{
     font-size:2rem;
     border:none;
     outline:none;
     border-radius:50px;
-    margin-top:2rem;
-    padding:2rem;
+    
+    padding:2rem 8rem;
+   
     width:100%;
 }
 .message__input__container{
     position:relative;
+    padding:2rem 0rem;
 }
+
+
 .message__input__container i{
     position:absolute;
     font-size:2.4rem;
-    background-color:var(--blue-main);
+    top:50%;
+    transform: translateY(-50%);
+    background-color: var(--blue-main);
+    color:var(white);
     padding:1.6rem;
     border-radius: 100%;
-    right:15px;
-    top:24px;
     cursor: pointer;
-    transition: 0.2s all;
 }
 .message__input__container i:hover{
     background-color:var(--blue-main_light);
+}
+.fa-face-smile{
+    left:2rem;
+}
+.message__input__container .fa-paper-plane{
+    right:2rem;
+}
+.emoteicon__container{
+    position:absolute;
 }
