@@ -4,7 +4,6 @@
 </head>
 <body>
     <?php 
-    session_start();
     $currentUserID = $_SESSION['userID'];
     $photoURL = file_exists("../../images/profilePhotos/userPhoto_".$currentUserID.".png")?
     "../../images/profilePhotos/userPhoto_".$currentUserID.'.png':
