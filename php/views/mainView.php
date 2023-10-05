@@ -21,6 +21,7 @@
     </section>
     <script src="../../js/slider.js"></script>
     <script src="../../js/loadPosts.js"></script>
+    <script src="../../js/likeButtons.js"></script>
     <script src="../../js/loadTheme.js"></script>
 </body>
 </html>

@@ -81,6 +81,14 @@ class PostModel extends Model
         }
         return $postData;
     }
+    public function getAllUserLikedPosts($userID){
+        $query = 'SELECT likes.post_id FROM likes where likes.user_id =:userID';
+
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(":userID",$userID);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
 
 }
 

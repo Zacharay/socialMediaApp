@@ -9,11 +9,13 @@ try {
     }
     $userID = $_SESSION['userID'];
     $postID = $_POST['postID'];
+    $typeOfRequest = $_POST['typeOfRequest'];
    
     require_once "../models/LikeModel.php";
 
     $likeModel = new LikeModel();
-    $likeModel->insertLike($postID,$userID);
+    if($typeOfRequest=='like')$likeModel->insertLike($postID,$userID);
+    else if($typeOfRequest=='dislike')$likeModel->deleteLike($postID,$userID);
 }
 catch (Exception $e) {
         $response[] = array('status' => 'error', 'code' => $e->getCode(), 'message' => $e->getMessage());

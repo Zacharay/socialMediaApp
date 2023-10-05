@@ -14,6 +14,7 @@ class LikeModel extends Model
         INSERT INTO likes VALUES(null,:userID,:postID);
         UPDATE posts set likes = likes+1 where posts.id = :postID;
         ";
+        
         $stmt = $this->prepareQuery($query);
 
         $stmt->bindParam(':userID',$userID);
@@ -21,9 +22,11 @@ class LikeModel extends Model
 
         $stmt->execute();
     }
-    public function deleteLike()
+    public function deleteLike($postID,$userID)
     {
-        $query = "DELETE FROM likes WHERE likes.user_id=:userID and likes.post_id=:postID";
+        $query = "
+        DELETE FROM likes WHERE likes.user_id=:userID and likes.post_id=:postID;
+        UPDATE posts set likes = likes-1 where posts.id = :postID;";
         $stmt = $this->prepareQuery($query);
 
         $stmt->bindParam(':userID',$userID);

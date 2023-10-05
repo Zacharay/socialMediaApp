@@ -12,6 +12,8 @@
                 $postModel->getCurrentUserPosts($userID):
                 $postModel->getFollowingUsersPosts($userID);
 
+                $currentUserLikedPosts = $postModel->getAllUserLikedPosts($userID);
+                
                 for($i = 0;$i<count($posts);$i++)
                 {
                         $postUserID = isset($posts[$i]['user_id'])?$posts[$i]['user_id']:-1;
@@ -22,11 +24,13 @@
                         $uploadDate = $posts[$i]['uploadDate'];
                         $photosCount = $posts[$i]['photosCount'];
                         $likes = $posts[$i]['likes'];
-                        echo includePostTemplate($postUserID==-1?$userID:$postUserID,$userName." ".$userSurname,$content,$uploadDate,$likes,$postID,$photosCount);
+                        $isLiked = in_array($postID,$currentUserLikedPosts);
+                        echo includePostTemplate($postUserID==-1?$userID:$postUserID,$userName." ".$userSurname,$content,$uploadDate,$likes,$postID,$photosCount,$isLiked);
                 }
 
 
             }
             
         ?>
+   
 
