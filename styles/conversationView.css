@@ -132,8 +132,8 @@ main{
     outline:none;
     border-radius:50px;
     
-    padding:2rem 8rem;
-   
+    padding:2rem;
+    padding-right:14rem;
     width:100%;
 }
 .message__input__container{
@@ -157,7 +157,7 @@ main{
     background-color:var(--blue-main_light);
 }
 .fa-face-smile{
-    left:2rem;
+    right:8rem;
 }
 .message__input__container .fa-paper-plane{
     right:2rem;

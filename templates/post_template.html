@@ -1,4 +1,4 @@
-<div class="post__container">
+<div class="post__container" data-id="[[POST_ID]]">
     <div class="post__info">
         <a href="../views/userProfile.php?userID=[[USER_ID]]">
             <img src="[[PHOTO_URL]]" alt="profile photo" class="post__userphoto"/>
@@ -17,7 +17,8 @@
     
     <h4 class="likes__number">Likes: [[LIKES_COUNT]]</h4>
     <div class="post__action__container">
-        <div class="post__action"><i class="fa-regular fa-heart"></i>Like </div>
+        [[LIKE_BTN]]
+       
         <a class="post__action" href="postView.php?postID=[[POST_ID]]"><i class="fa-regular fa-comment"></i>Comment</a>
         <div class="post__action"><i class="fa-regular fa-share-from-square"></i>Share</div>
     </div>

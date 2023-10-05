@@ -155,5 +155,6 @@
     <script src="../../js/followBtn.js"></script>
     <script src="../../js/slider.js"></script>
     <script src="../../js/loadTheme.js"></script>
+    <script src="../../js/likeButtons.js"></script>
 </body>
 </html>
