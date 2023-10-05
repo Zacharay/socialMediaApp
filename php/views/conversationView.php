@@ -12,13 +12,44 @@
     <?php 
     require_once "../includes/routing.php";
     require_once "../includes/navbar.php";
+    require_once "../models/ConversationModel.php";
+    
+    $currentUserID = $_SESSION['userID'];
+    $conversationModel = new ConversationModel();
+
+    $conversations = $conversationModel->getUserConversations($currentUserID);
     
     ?>
     <section class="conversation__section">
         <aside>
             <input type="text"  class="conversation__search"/>
             <ul class="conversation__list">
-                <li class="conversation__element conversation--active">                
+                <?php 
+                foreach($conversations as $conversation)
+                {
+                    $userID = $conversation['id'];
+                    $name = $conversation['name'];
+                    $surname = $conversation['surname'];
+                    $conversationID = $conversation['conversation_id'];
+                    $lastMessage = $conversationModel->getLastMessage($conversationID);
+                    $lastMessageContent = $lastMessage['content'];
+                    $lastMessageDate = $lastMessage['upload_date'];
+
+
+                    echo "<li class='conversation__element conversation--active'>                
+                        <img src='../../images/profilePhotos/userPhoto_$userID.png' class='conversation__userphoto'/>
+                        <div class='conversation__wrapper'>
+                            <div class='conversation__header'>
+                                <h3 class='conversation__fullname'>$name $surname</h3>
+                                <p class='converstation__date'>$lastMessageDate</p>
+                            </div>   
+                                 <p class='conversation__showcase__text'>$lastMessageContent</p>
+                                
+                        </div>           
+                    </li>";
+                }
+                ?>
+                <!-- <li class="conversation__element conversation--active">                
                     <img src="../../images/profilePhotos/userPhoto_1.png" class="conversation__userphoto"/>
                     <div class="conversation__wrapper">
                         <div class="conversation__header">
@@ -50,7 +81,7 @@
                             <p class="conversation__showcase__text">Hello world hello world</p>
                         
                     </div>           
-                </li>
+                </li> -->
             </ul>
         </aside>
         <main >

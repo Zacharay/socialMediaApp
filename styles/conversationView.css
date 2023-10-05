@@ -23,6 +23,7 @@
 aside{
     border-right:2px solid var(--section-gray);
     padding-right:3.2rem;
+    width:50rem;
 }
 .conversation__list{
     display:flex;
@@ -37,6 +38,7 @@ aside{
     padding-left:3.2rem;
     cursor:pointer;
     border-bottom:2px solid var(--section-gray);
+    overflow: hidden;
 }
 .conversation--active{
     border-left:2px solid var(--blue-main);
@@ -45,6 +47,7 @@ aside{
     display:flex;
     flex-direction: column;
     justify-content:space-around;
+    overflow: hidden;
     width:100%;
 }
 .conversation__header{
@@ -63,6 +66,7 @@ aside{
 .conversation__showcase__text{
     font-size:1.6rem;
     color:var(--secondary-light);
+    text-wrap:nowrap;
 }
 .converstation__date{
     font-size:1.6rem;
