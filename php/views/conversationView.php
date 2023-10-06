@@ -16,7 +16,7 @@
     
     $currentUserID = $_SESSION['userID'];
     $conversationModel = new ConversationModel();
-
+    
     $conversations = $conversationModel->getUserConversations($currentUserID);
     
     ?>
@@ -36,7 +36,7 @@
                     $lastMessageDate = $lastMessage['upload_date'];
 
 
-                    echo "<li class='conversation__element conversation--active'>                
+                    echo "<li class='conversation__element' data-id='$conversationID'>                
                         <img src='../../images/profilePhotos/userPhoto_$userID.png' class='conversation__userphoto'/>
                         <div class='conversation__wrapper'>
                             <div class='conversation__header'>
@@ -49,39 +49,6 @@
                     </li>";
                 }
                 ?>
-                <!-- <li class="conversation__element conversation--active">                
-                    <img src="../../images/profilePhotos/userPhoto_1.png" class="conversation__userphoto"/>
-                    <div class="conversation__wrapper">
-                        <div class="conversation__header">
-                            <h3 class="conversation__fullname">John Doe</h3>
-                            <p class="converstation__date">12:49AM</p>
-                        </div>   
-                            <p class="conversation__showcase__text">Hello world hello world</p>
-                        
-                    </div>           
-                </li>
-                <li class="conversation__element">                
-                    <img src="../../images/profilePhotos/userPhoto_1.png" class="conversation__userphoto"/>
-                    <div class="conversation__wrapper">
-                        <div class="conversation__header">
-                            <h3 class="conversation__fullname">John Doe</h3>
-                            <p class="converstation__date">12:49AM</p>
-                        </div>   
-                            <p class="conversation__showcase__text">Hello world hello world</p>
-                        
-                    </div>           
-                </li>
-                <li class="conversation__element">                
-                    <img src="../../images/profilePhotos/userPhoto_1.png" class="conversation__userphoto"/>
-                    <div class="conversation__wrapper">
-                        <div class="conversation__header">
-                            <h3 class="conversation__fullname">John Doe</h3>
-                            <p class="converstation__date">12:49AM</p>
-                        </div>   
-                            <p class="conversation__showcase__text">Hello world hello world</p>
-                        
-                    </div>           
-                </li> -->
             </ul>
         </aside>
         <main >
@@ -140,5 +107,6 @@
         closeButton: true,
     });
     </script>
+    <script src="../../js/ConversationsHandler.js"></script>
 </body>
 </html>
