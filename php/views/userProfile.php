@@ -99,7 +99,7 @@
                 if($currentUserID==$userID)
                     echo ' <a class="btn--primary" id="message__btn" href="profileSettingsView.php"><i class="fa-solid fa-gear"></i>Edit Profile</a>';
                 else{
-                    echo ' <a class="btn--primary" id="message__btn" href="conversationView.php"><i class="fa-regular fa-envelope"></i>Send Message</a>';
+                    echo ' <a class="btn--primary" id="message__btn" href="conversationView.php?userID='.$userID.'"><i class="fa-regular fa-envelope"></i>Send Message</a>';
                 }
                 ?>
                

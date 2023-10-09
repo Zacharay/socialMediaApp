@@ -1,12 +1,12 @@
 class ConversationHandler{
     #activeConversationID;
     #conversations;
-    #conversationTitles;
+
     constructor()
     {
         this.#conversations = document.querySelectorAll(".conversation__element");
         
-        this.#activeConversationID = 0;
+        this.#activeConversationID = 1;
 
 
         if(this.#conversations.length>0)
@@ -27,8 +27,11 @@ class ConversationHandler{
 
         const el= document.querySelector(`.conversation__element[data-id='${this.#activeConversationID}']`);
         this._removeActiveClass();
+        
         this._fetchMessages();
+    
         el.classList.add('conversation--active');
+        this._updateTitle();
     }
     _removeActiveClass()
     {
@@ -37,6 +40,11 @@ class ConversationHandler{
     }
     async _fetchMessages()
     {
+        if(this.#activeConversationID==-1)
+        {
+            this._displayMessages(null);
+            return;
+        }
         const formData = new FormData();
         formData.append('conversationID',this.#activeConversationID);
 
@@ -50,10 +58,13 @@ class ConversationHandler{
     }
     async _sendMessage()
     {
+        const urlParams = new URLSearchParams(window.location.search);
+        const receiverID = urlParams.get("userID");
+
         const messageInput = document.querySelector(".message__input");
-        const conversationID =  document.querySelector(".conversation--active").getAttribute('data-id');
         const formData = new FormData();
-        formData.append("conversationID",conversationID);
+        formData.append("conversationID",this.#activeConversationID);
+        formData.append("receiverID",receiverID);
         formData.append("content",messageInput.value);
         
         const response = await fetch(`../http/sendMessage.php`, {
@@ -70,6 +81,12 @@ class ConversationHandler{
     _displayMessages(messages)
     {
         const messageContainer= document.querySelector(".message__container");
+        if(messages==null)
+        {
+            messageContainer.textContent = "";
+            return;
+        }
+        
         let html ='';
         messages.forEach(msg=>{
             if(msg['isFirstUserMessage']==true&&msg['isCurrentUserMessage']==false)
@@ -90,19 +107,22 @@ class ConversationHandler{
         })
         messageContainer.innerHTML = html;
     }
-    async updateTitle()
+    async _updateTitle()
     {
-        const conversationID =  document.querySelector(".conversation--active").getAttribute('data-id');
+        const urlParams = new URLSearchParams(window.location.search);
+        const receiverID = urlParams.get("userID");
+
+
         const formData = new FormData();
-        formData.append("conversationID",conversationID);
+        formData.append("conversationID",this.#activeConversationID);
+        formData.append("conversationUserID",receiverID);
         const response = await fetch(`../http/getConversationTitle.php`, {
             method: 'POST',
             body: formData
         });
 
         const json = await response.json();
-
-        document.querySelector(".conversation__title").textContent = json.data['conversationTitle'];
+        document.querySelector(".conversation__title").textContent = json.data;
     }
    
 }

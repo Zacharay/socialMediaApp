@@ -9,11 +9,19 @@ try {
     }
     
     $currentUserID = $_SESSION['userID'];
+    $receiverID = $_POST['receiverID'];
     $messageContent = $_POST['content'];
     $conversationID = $_POST['conversationID'];
-
     $conversationModel = new ConversationModel();
+    if($conversationID==-1)
+    {
+        $conversationID=$conversationModel->createConversation($receiverID,$currentUserID);
+    }
+
+
     $conversationModel->sendMessage($messageContent,$conversationID,$currentUserID);
+
+    
 
     $response['status'] = 'success';
     $response['message'] = 'Action completed successfully';

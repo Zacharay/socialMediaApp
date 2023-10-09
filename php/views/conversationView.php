@@ -15,6 +15,7 @@
     require_once "../models/ConversationModel.php";
     
     $currentUserID = $_SESSION['userID'];
+    $conversationUserID =$_GET['userID'];
     $conversationModel = new ConversationModel();
     
     $conversations = $conversationModel->getUserConversations($currentUserID);
@@ -48,6 +49,25 @@
                         </div>           
                     </li>";
                 }
+                require_once "../models/UserModel.php";
+                $userModel = new UserModel();
+                $photoURLProfile = file_exists("../../images/profilePhotos/userPhoto_".$conversationUserID.".png")?"../../images/profilePhotos/userPhoto_".$conversationUserID.'.png':'../../images/profilePhotos/userPhoto_default.png';
+
+                $fullname = $userModel->getUserFullnameByID($conversationUserID)['fullname'];
+
+                echo "
+                <li class='conversation__element' data-id='-1'>                
+                    <img src='$photoURLProfile' class='conversation__userphoto'/>
+                    <div class='conversation__wrapper'>
+                        <div class='conversation__header'>
+                            <h3 class='conversation__fullname'>$fullname</h3>
+                            <p class='converstation__date'></p>
+                        </div>   
+                            <p class='conversation__showcase__text'></p>
+                            
+                    </div>           
+                </li>";
+        
                 ?>
             </ul>
         </aside>

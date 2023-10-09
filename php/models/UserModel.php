@@ -162,6 +162,15 @@ class UserModel extends Model {
         return($count>0);
 
     }
+    public function getUserFullnameByID($userID)
+    {
+        $query = "SELECT CONCAT(users.name,' ',users.surname) as fullname from users where users.id=:userID";
+        
+        $stmt= $this->prepareQuery($query);
+        $stmt->bindParam(":userID",$userID);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
     public function doesEmailExists($email)
     {
         $query = "SELECT COUNT(*) FROM users WHERE users.email = :email";

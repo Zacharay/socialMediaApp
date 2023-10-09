@@ -51,13 +51,29 @@ class ConversationModel extends Model{
     }
     public function getConversationTitle($conversationID)
     {
-        $query = "SELECT CONCAT(user.name,user.surname) as fullname from users inner join user_conversations on user_conversations.sender_id = users.id WHERE user_conversations.conversation_id = :conversationID";
+        $query = "SELECT CONCAT(users.name,' ',users.surname) as fullname,users.id from users inner join user_conversations on user_conversations.user_id = users.id WHERE user_conversations.conversation_id = :conversationID";
 
         $stmt = $this->prepareQuery($query);
         $stmt->bindParam(":conversationID",$conversationID);
-        $stmt->exectute();
+        $stmt->execute();
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public function createConversation($receiverID,$currentUserID)
+    {
+        $query = "INSERT INTO conversations values(null);";
+        $stmt = $this->prepareQuery($query);
+        $stmt->execute();
+
+        $conversationID = $this->getLastInsertId();
+        $query = "INSERT INTO user_conversations VALUES(null,:receiverID,:conversationID),(null,:currentUserID,:conversationID)";
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(":receiverID",$receiverID);
+        $stmt->bindParam(":currentUserID",$currentUserID);
+        $stmt->bindParam(":conversationID",$conversationID);
+        $stmt->execute();
+
+        return $conversationID;
     }
 }
 ?>
