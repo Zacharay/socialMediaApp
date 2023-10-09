@@ -87,7 +87,7 @@
             </div>
             <div class="message__input__container">
                 <i class="fa-solid fa-face-smile"></i>
-                <i class="fa-solid fa-paper-plane"></i>
+                <i class="fa-solid fa-paper-plane send__btn"></i>
                 <input type="text" class="message__input" placeholder="Your message here..."/>
             </div>
             

@@ -20,7 +20,8 @@ try {
         'content'=>$messages[0]['content'],
         'uploadDate'=>$messages[0]['upload_date'],
         'isCurrentUserMessage'=>$messages[0]['sender_id']==$currentUserID?true:false,
-        'isFirstUserMessage'=>false
+        'senderID'=>$messages[0]['sender_id'],
+        'isFirstUserMessage'=>true
     );
 
 
@@ -30,6 +31,7 @@ try {
             'content'=>$messages[$i]['content'],
             'uploadDate'=>$messages[$i]['upload_date'],
             'isCurrentUserMessage'=>$messages[$i]['sender_id']==$currentUserID?true:false,
+            'senderID'=>$messages[$i]['sender_id'],
             'isFirstUserMessage'=>$messages[$i-1]['sender_id']!=$messages[$i]['sender_id']?true:false
         );
     }

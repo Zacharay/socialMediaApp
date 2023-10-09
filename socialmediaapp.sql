@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 05 Paź 2023, 22:26
--- Wersja serwera: 10.4.25-MariaDB
--- Wersja PHP: 8.1.10
+-- Czas generowania: 09 Paź 2023, 12:51
+-- Wersja serwera: 10.4.27-MariaDB
+-- Wersja PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,20 +33,24 @@ CREATE TABLE `comments` (
   `user_id` int(11) NOT NULL,
   `content` text NOT NULL,
   `upload_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 
 --
--- Zrzut danych tabeli `comments`
+-- Struktura tabeli dla tabeli `conversations`
 --
 
-INSERT INTO `comments` (`id`, `post_id`, `user_id`, `content`, `upload_date`) VALUES
-(3, 2, 2, 'dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda dasdjasdhjasda ', '2023-09-20'),
-(4, 14, 2, 'dsadasdas', '2023-09-30'),
-(5, 14, 2, 'dsadasdas', '2023-09-30'),
-(6, 14, 2, 'dsa', '2023-09-30'),
-(7, 14, 2, 'dsadsasdads', '2023-09-30'),
-(8, 14, 2, 'dsadsasdadsdsaasdasd', '2023-09-30'),
-(11, 14, 1, 'FAFS', '2023-09-30');
+CREATE TABLE `conversations` (
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Zrzut danych tabeli `conversations`
+--
+
+INSERT INTO `conversations` (`id`) VALUES
+(1);
 
 -- --------------------------------------------------------
 
@@ -58,7 +62,7 @@ CREATE TABLE `follows` (
   `id` int(10) UNSIGNED NOT NULL,
   `follower_id` int(11) NOT NULL,
   `following_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Zrzut danych tabeli `follows`
@@ -66,10 +70,11 @@ CREATE TABLE `follows` (
 
 INSERT INTO `follows` (`id`, `follower_id`, `following_id`) VALUES
 (2, 3, 1),
+(4, 2, 3),
 (11, 2, 1),
-(16, 2, 3),
-(19, 1, 3),
-(20, 1, 2);
+(14, 5, 2),
+(15, 2, 5),
+(16, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -81,15 +86,14 @@ CREATE TABLE `likes` (
   `like_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Zrzut danych tabeli `likes`
 --
 
 INSERT INTO `likes` (`like_id`, `user_id`, `post_id`) VALUES
-(1, 2, 16),
-(2, 2, 15);
+(2, 1, 15);
 
 -- --------------------------------------------------------
 
@@ -103,15 +107,24 @@ CREATE TABLE `messages` (
   `upload_date` datetime NOT NULL,
   `conversation_id` int(11) NOT NULL,
   `sender_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Zrzut danych tabeli `messages`
 --
 
 INSERT INTO `messages` (`id`, `content`, `upload_date`, `conversation_id`, `sender_id`) VALUES
-(1, 'Hey there! I just finished the initial design mockups for the new project. Take a look', '2023-10-05 20:14:23', 1, 2),
-(2, ' Wow, these look amazing! 👏 The color scheme is spot on. I\'ll start working on the backend logic. Do you have any specific fonts in mind?', '2023-10-05 21:14:23', 1, 1);
+(1, 'Hey there! I hope you\'re doing well. We\'re working on a new web project, and I need some graphics for the landing page. Are you available for a new collaboration?', '2023-10-09 11:38:31', 1, 1),
+(2, 'Hi! I\'m doing great, thanks for asking. Absolutely, I\'d love to collaborate on the new project. Could you give me more details about the theme and style you\'re aiming for in the graphics?', '2023-10-09 11:38:31', 1, 2),
+(3, 'Sounds exciting! I\'m thinking of using a palette of warm colors and incorporating travel elements like maps and compasses. How about we schedule a quick meeting to discuss the specifics? I\'d love to get your feedback as we work on the initial concepts.', '2023-10-09 11:38:31', 1, 2),
+(4, 'Awesome! The project is a travel blog, so we\'re thinking of a vibrant and adventurous theme. We want to convey a sense of exploration and discovery. Any ideas or concepts you\'d like to explore for the landing page graphics?', '2023-10-09 11:38:31', 1, 1),
+(6, 'dsadsdasdsadsadsa', '2023-10-09 12:32:32', 0, 1),
+(7, 'dasdsadas', '2023-10-09 12:34:53', 1, 1),
+(8, 'Sounds exciting! I\'m thinking of using a palette of warm colors and incorporating travel elements like maps and compasses. How about we schedule a quick meeting to discuss the specifics? I\'d love to get your feedback as we work on the initial concepts.😂😂😂', '2023-10-09 12:35:08', 1, 1),
+(9, 'jsaj fkjfd ahkf akj fkjasd hkjhjkds hjkdshjk jhkdfshj djhk ashjds ajhkjkhdsjh dsahj ds', '2023-10-09 12:35:48', 1, 1),
+(10, 'jsaj fkjfd ahkf akj fkjasd hkjhjkds hjkdshjk jhkdfshj djhk ashjds ajhkjkhdsjh dsahj ds', '2023-10-09 12:35:54', 1, 1),
+(11, 'dasdsadsa', '2023-10-09 12:36:16', 1, 1),
+(12, 'dasdsadsadsaz  c  dssa d😀😀🤣🤣🤣 😇😇😇😇 😇😇😇😇', '2023-10-09 12:37:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -126,7 +139,7 @@ CREATE TABLE `posts` (
   `upload_date` date NOT NULL,
   `photos_count` int(11) NOT NULL,
   `likes` int(11) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Zrzut danych tabeli `posts`
@@ -148,7 +161,7 @@ INSERT INTO `posts` (`id`, `user_id`, `content`, `upload_date`, `photos_count`, 
 (13, 1, 'Just landed my dream job as a software engineer at [Company Name]! 🚀 I couldn\'t be more excited to work with such an innovative team and contribute to some exciting projects. Here\'s to new beginnings! 🥂 #DreamJob #SoftwareEngineering #CareerGoals', '2023-09-16', 3, 0),
 (14, 1, 'Debugging days are like solving puzzles, and I absolutely love it! Today, I conquered a tricky bug that had been bugging me for hours. 🐛💪 #DebuggingAdventures #SoftwareEngineering #Coding', '2023-09-16', 1, 0),
 (15, 1, 'Code review time! 🔍 As a software engineer, this is where the magic happens. Collaborating with my team to ensure our code is top-notch and free of errors. Let\'s make our app shine! ✨ #CodeReview #Teamwork #QualityCode', '2023-09-16', 3, 1),
-(16, 2, 'The original score was led by Marcin Przybyłowicz, and featured the contributions of several licensed artists. After years of anticipation, CD Projekt released Cyberpunk 2077 for PlayStation 4, Stadia, Windows, and Xbox One on 10 December 2020, followed by PlayStation 5 and Xbox Series X/S on 15 February 2022.', '2023-09-24', 0, 1);
+(16, 5, 'Iława – miasto w województwie warmińsko-mazurskim, siedziba powiatu iławskiego. W latach 1975–1998 miejscowość należała administracyjnie do województwa olsztyńskiego. Iława jest ośrodkiem wypoczynkowym,', '2023-10-02', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -162,15 +175,15 @@ CREATE TABLE `sociallinks` (
   `instagramLink` text NOT NULL,
   `facebookLink` text NOT NULL,
   `linkedinLink` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Zrzut danych tabeli `sociallinks`
 --
 
 INSERT INTO `sociallinks` (`user_id`, `twitterLink`, `instagramLink`, `facebookLink`, `linkedinLink`) VALUES
-(1, '', 'https://www.instagram.com/ciekawostkowoo/', 'https://www.facebook.com/', ''),
-(2, '', 'https://www.instagram.com/', 'https://www.facebook.com/BillGates/?locale=pl_PL', '');
+(2, '', '', 'https://www.facebook.com/BillGates/?locale=pl_PL', ''),
+(1, '', '', 'https://www.facebook.com/?locale=pl_PL', '');
 
 -- --------------------------------------------------------
 
@@ -187,16 +200,18 @@ CREATE TABLE `users` (
   `job` varchar(255) NOT NULL,
   `bio` text NOT NULL,
   `password` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Zrzut danych tabeli `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `job`, `bio`, `password`) VALUES
-(1, 'John', 'Doe', 'john_doe', 'axa26421@nezid.com', 'Software Engineer', 'I am a passionate and results-driven Software Engineer with a keen interest in creating innovative and efficient solutions to complex problems. With a strong foundation in computer science and hands-on experience in software development, I thrive in dynamic environments where I can apply my technical expertise to drive impactful outcomes.', '$2y$10$oON2w1J3Y2VmG0R3CFPzWe4jfXex/hxVJO1PQckvoWUSz3yIRgpkq'),
-(2, 'Alice', 'Smith', 'alice_smith', 'alice.smith@example.com', 'Graphic Designer', 'Hello, I\'m Alice, a passionate Graphic Designer with a flair for creativity and a keen eye for detail. My journey in the world of design began with a profound love for visual storytelling and a desire to transform ideas into captivating visual experiences.', '$2y$10$05eBGQK/PbhlI2C4aXCuVegJzpEEIXxuS9H9J39BsaVuYuvTLYtwi'),
-(3, 'Michael', 'Lee', 'michael_lee', 'michael.lee@example.com', 'Data Analyst', '', '$2y$10$NAUG1thO3DVxNFCWcwwQe.SMwpiWECs3.tBh8NBnu9YHZuehcRGIq');
+(1, 'John', 'Doe', 'john_doe', 'john.doe@example.com', 'Software Engineer', '', '$2y$10$oON2w1J3Y2VmG0R3CFPzWe4jfXex/hxVJO1PQckvoWUSz3yIRgpkq'),
+(2, 'Alice', 'Smith', 'alice_smith', 'alice.smith@example.com', 'Graphic Designer', '', '$2y$10$05eBGQK/PbhlI2C4aXCuVegJzpEEIXxuS9H9J39BsaVuYuvTLYtwi'),
+(3, 'Michael', 'Lee', 'michael_lee', 'michael.lee@example.com', 'Data Analyst', '', '$2y$10$NAUG1thO3DVxNFCWcwwQe.SMwpiWECs3.tBh8NBnu9YHZuehcRGIq'),
+(4, 'dsad', 'sadas', 'dsadsa', 'adsdsa@wp.pl', 'dsadsa', '', '$2y$10$o2BFPMfw8ODnwnrPbd.NDejzvCmqO5xCHdJfzXE7Cb6ecHMgS0VkC'),
+(5, 'Elon', 'Musk', 'ElonMusk', 'elon.musk@gmail.com', 'CEO', '', '$2y$10$4UxOeztTDSkJPfjrdKBZzeNT6rKuolKzIp0drczs.IMTbahTWFmCi');
 
 -- --------------------------------------------------------
 
@@ -207,30 +222,16 @@ INSERT INTO `users` (`id`, `name`, `surname`, `username`, `email`, `job`, `bio`,
 CREATE TABLE `user_conversations` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
-  `conversation_id` int(11) NOT NULL,
-  `conversation_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `conversation_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Zrzut danych tabeli `user_conversations`
 --
 
-INSERT INTO `user_conversations` (`id`, `user_id`, `conversation_id`, `conversation_name`) VALUES
-(1, 1, 1, 'Alice Smith'),
-(2, 2, 1, 'John Doe');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `validationtokens`
---
-
-CREATE TABLE `validationtokens` (
-  `token` int(6) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `creation_time` timestamp NOT NULL DEFAULT current_timestamp(),
-  `expiration_time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `user_conversations` (`id`, `user_id`, `conversation_id`) VALUES
+(1, 1, 1),
+(2, 2, 1);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -240,6 +241,12 @@ CREATE TABLE `validationtokens` (
 -- Indeksy dla tabeli `comments`
 --
 ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `conversations`
+--
+ALTER TABLE `conversations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -267,12 +274,6 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `sociallinks`
---
-ALTER TABLE `sociallinks`
-  ADD PRIMARY KEY (`user_id`);
-
---
 -- Indeksy dla tabeli `users`
 --
 ALTER TABLE `users`
@@ -287,12 +288,6 @@ ALTER TABLE `user_conversations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `validationtokens`
---
-ALTER TABLE `validationtokens`
-  ADD PRIMARY KEY (`token`);
-
---
 -- AUTO_INCREMENT dla zrzuconych tabel
 --
 
@@ -300,13 +295,19 @@ ALTER TABLE `validationtokens`
 -- AUTO_INCREMENT dla tabeli `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT dla tabeli `conversations`
+--
+ALTER TABLE `conversations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `follows`
 --
 ALTER TABLE `follows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT dla tabeli `likes`
@@ -318,7 +319,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT dla tabeli `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT dla tabeli `posts`
@@ -330,7 +331,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `user_conversations`

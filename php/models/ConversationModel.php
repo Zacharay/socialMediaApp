@@ -39,6 +39,25 @@ class ConversationModel extends Model{
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-}
+    public function sendMessage($content,$conversationID,$senderID)
+    {
+        $query = 'INSERT INTO messages VALUES(NULL,:content,CURRENT_TIMESTAMP,:conversationID,:senderID)';
+        $stmt = $this->prepareQuery($query);
 
+        $stmt->bindParam(":content",$content);
+        $stmt->bindParam(":conversationID",$conversationID);
+        $stmt->bindParam(":senderID",$senderID);
+        $stmt->execute();
+    }
+    public function getConversationTitle($conversationID)
+    {
+        $query = "SELECT CONCAT(user.name,user.surname) as fullname from users inner join user_conversations on user_conversations.sender_id = users.id WHERE user_conversations.conversation_id = :conversationID";
+
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(":conversationID",$conversationID);
+        $stmt->exectute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+}
 ?>
