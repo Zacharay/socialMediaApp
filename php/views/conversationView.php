@@ -26,6 +26,8 @@
             <input type="text"  class="conversation__search"/>
             <ul class="conversation__list">
                 <?php 
+                $activeConversationID = $conversationModel->doesConversationExists($currentUserID,$conversationUserID);
+                
                 foreach($conversations as $conversation)
                 {
                     $userID = $conversation['id'];
@@ -35,10 +37,10 @@
                     $lastMessage = $conversationModel->getLastMessage($conversationID);
                     $lastMessageContent = $lastMessage['content'];
                     $lastMessageDate = $lastMessage['upload_date'];
-
-
-                    echo "<li class='conversation__element' data-id='$conversationID'>                
-                        <img src='../../images/profilePhotos/userPhoto_$userID.png' class='conversation__userphoto'/>
+                    $photoURLProfile = file_exists("../../images/profilePhotos/userPhoto_".$userID.".png")?"../../images/profilePhotos/userPhoto_".$userID.'.png':'../../images/profilePhotos/userPhoto_default.png';
+                    $isConversationActive =$conversationID ==$activeConversationID ?'conversation--active':'';
+                    echo "<li class='conversation__element $isConversationActive' data-id='$conversationID'>                
+                        <img src='$photoURLProfile' class='conversation__userphoto'/>
                         <div class='conversation__wrapper'>
                             <div class='conversation__header'>
                                 <h3 class='conversation__fullname'>$name $surname</h3>
@@ -55,24 +57,31 @@
 
                 $fullname = $userModel->getUserFullnameByID($conversationUserID)['fullname'];
 
-                echo "
-                <li class='conversation__element' data-id='-1'>                
-                    <img src='$photoURLProfile' class='conversation__userphoto'/>
-                    <div class='conversation__wrapper'>
-                        <div class='conversation__header'>
-                            <h3 class='conversation__fullname'>$fullname</h3>
-                            <p class='converstation__date'></p>
-                        </div>   
-                            <p class='conversation__showcase__text'></p>
-                            
-                    </div>           
-                </li>";
+                
+                
+
+                if($activeConversationID==null)
+                {
+                    echo "
+                    <li class='conversation__element conversation--active' data-id='-1'>                
+                        <img src='$photoURLProfile' class='conversation__userphoto'/>
+                        <div class='conversation__wrapper'>
+                            <div class='conversation__header'>
+                                <h3 class='conversation__fullname'>$fullname</h3>
+                                <p class='converstation__date'></p>
+                            </div>   
+                                <p class='conversation__showcase__text'></p>
+                                
+                        </div>           
+                    </li>";
+                }
+
         
                 ?>
             </ul>
         </aside>
         <main >
-            <h1 class="conversation__title">Alice Smith</h1>
+            <h1 class="conversation__title"></h1>
             <div class="message__container">
                 <div class="message message--currentUser">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente perferendis libero minima qui corrupti culpa consectetur incidunt. Velit, quaerat asperiores!

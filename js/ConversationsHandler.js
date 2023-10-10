@@ -6,17 +6,17 @@ class ConversationHandler{
     {
         this.#conversations = document.querySelectorAll(".conversation__element");
         
-        this.#activeConversationID = 1;
+        this.#activeConversationID = document.querySelector(".conversation--active").getAttribute("data-id");
 
-
+        console.log(this.#activeConversationID)
         if(this.#conversations.length>0)
         {
-            this.#conversations[0].classList.add('conversation--active');
-
+            
             this.#conversations.forEach(conversation=>{
                 conversation.addEventListener('click',this._changeConversation.bind(this));
             })
             this._fetchMessages();
+            this._updateTitle();
         }
         document.querySelector(".send__btn").addEventListener('click',this._sendMessage.bind(this))
     }   
@@ -73,6 +73,10 @@ class ConversationHandler{
         });
 
         const json = await response.json();
+        if(json.data)
+        {
+            this.#activeConversationID = json.data;
+        }
 
         messageInput.value = "";
         this._fetchMessages();

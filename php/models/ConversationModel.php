@@ -75,5 +75,21 @@ class ConversationModel extends Model{
 
         return $conversationID;
     }
+    public function doesConversationExists($userID,$receiverID)
+    {
+        $query = "SELECT conversations.id FROM user_conversations inner join conversations on user_conversations.conversation_id = conversations.id WHERE user_conversations.user_id = :receiverID and user_conversations.conversation_id in(SELECT conversation_id FROM user_conversations INNER JOIN conversations ON user_conversations.conversation_id=conversations.id WHERE user_conversations.user_id = :userID)";
+
+        $stmt = $this->prepareQuery($query);
+        $stmt->bindParam(":receiverID",$receiverID);
+        $stmt->bindParam(":userID",$userID);
+
+        $stmt->execute();
+
+        $result =$stmt->fetch(PDO::FETCH_ASSOC);
+ 
+      
+
+        return $result['id'];
+    }
 }
 ?>

@@ -16,6 +16,7 @@ try {
     if($conversationID==-1)
     {
         $conversationID=$conversationModel->createConversation($receiverID,$currentUserID);
+        $response['data']=$conversationID;
     }
 
 

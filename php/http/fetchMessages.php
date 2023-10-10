@@ -8,12 +8,13 @@ try {
         throw new Exception('There is no user logged in', 401);
     }
     $currentUserID = $_SESSION['userID'];
-    $conversatiodID = 1;
+    $conversatiodID = $_POST['conversationID'];
     $conversatioModel = new ConversationModel();
 
 
 
     $messages = $conversatioModel->getAllConversationMessages($conversatiodID);
+  
 
     $numOfMessages = count($messages);
     $data[] = array(
